@@ -70,24 +70,340 @@
       <header class="section-header">
         <span class="section-kicker">Operations Hub</span>
         <h2 id="heading-dashboard">Workshop Operations Dashboard</h2>
-        <p>Executive metrics, active tracks, capacity status, and daily schedule timeline.</p>
+        <p>Real-time enrollment metrics, session capacity tracking, kit readiness, and chronological session schedule.</p>
       </header>
-      <div class="section-placeholder">
-        <!-- Dashboard components will be populated in Commit 2 -->
-        <p>Dashboard metrics, statistics cards, and workshop schedule timeline.</p>
+
+      <!-- Key Performance Indicators (KPI) Summary Grid -->
+      <div class="stats-grid">
+        <!-- Metric 1: Scheduled Tracks -->
+        <article class="stat-card">
+          <div class="stat-header">
+            <span class="stat-title">Active Workshops</span>
+            <span class="stat-icon" aria-hidden="true">📚</span>
+          </div>
+          <div class="stat-value">4 Tracks</div>
+          <div class="stat-subtext">Across Web, Cloud, IoT & AI</div>
+        </article>
+
+        <!-- Metric 2: Total Registrations with Capacity -->
+        <article class="stat-card accent-info">
+          <div class="stat-header">
+            <span class="stat-title">Confirmed Registrations</span>
+            <span class="stat-icon" aria-hidden="true">👥</span>
+          </div>
+          <div class="stat-value">142 / 160</div>
+          <div class="stat-subtext"><span class="trend-positive">↑ 88.8%</span> capacity claimed</div>
+        </article>
+
+        <!-- Metric 3: Material Kits Prepared -->
+        <article class="stat-card accent-warning">
+          <div class="stat-header">
+            <span class="stat-title">Hardware & Lab Kits</span>
+            <span class="stat-icon" aria-hidden="true">📦</span>
+          </div>
+          <div class="stat-value">128 Ready</div>
+          <div class="stat-subtext">14 awaiting final assembly</div>
+        </article>
+
+        <!-- Metric 4: Verified Attendance Rate -->
+        <article class="stat-card accent-success">
+          <div class="stat-header">
+            <span class="stat-title">Attendance Rate</span>
+            <span class="stat-icon" aria-hidden="true">✅</span>
+          </div>
+          <div class="stat-value">94.2%</div>
+          <div class="stat-subtext">134 checked in for Session 1</div>
+        </article>
+
+        <!-- Metric 5: Average Participant Evaluation -->
+        <article class="stat-card">
+          <div class="stat-header">
+            <span class="stat-title">Evaluation Score</span>
+            <span class="stat-icon" aria-hidden="true">⭐</span>
+          </div>
+          <div class="stat-value">4.85 / 5.0</div>
+          <div class="stat-subtext">From 116 verified reviews</div>
+        </article>
       </div>
+
+      <!-- Overall Seat Allocation Progress -->
+      <article class="capacity-tracker-card">
+        <div class="capacity-tracker-header">
+          <div>
+            <h3>Overall Workshop Seat Allocation</h3>
+            <p>Monitors aggregate attendee capacity to prevent over-registration across campus computer labs.</p>
+          </div>
+          <span class="capacity-metric">142 of 160 Seats Reserved (18 Remaining)</span>
+        </div>
+        <!-- Semantic progress element with native fallback text -->
+        <progress class="capacity-progress" value="142" max="160">88.75%</progress>
+      </article>
+
+      <!-- Chronological Workshop Schedule Timeline -->
+      <article class="dashboard-schedule-block">
+        <h3>Today's Workshop Schedule & Status</h3>
+        <ol class="timeline-list">
+          <li class="timeline-item">
+            <div class="timeline-time">
+              <time datetime="2026-11-28T09:30">09:30 AM</time>
+              <span>Morning Session</span>
+            </div>
+            <div class="timeline-content">
+              <h4>Advanced Semantic Web & Modern CSS Architecture</h4>
+              <div class="timeline-meta">
+                <span>📍 Computer Lab 34-401</span>
+                <span>👤 Dr. Arvind Sharma</span>
+                <span>Track: Web Development</span>
+              </div>
+            </div>
+            <div class="timeline-status">
+              <span class="badge badge-success">● In Progress</span>
+            </div>
+          </li>
+
+          <li class="timeline-item">
+            <div class="timeline-time">
+              <time datetime="2026-11-28T11:00">11:00 AM</time>
+              <span>Midday Session</span>
+            </div>
+            <div class="timeline-content">
+              <h4>Cloud-Native Microservices & Container Orchestration</h4>
+              <div class="timeline-meta">
+                <span>📍 Auditorium Block 3</span>
+                <span>👤 Prof. Priya Nair</span>
+                <span>Track: Cloud & DevOps</span>
+              </div>
+            </div>
+            <div class="timeline-status">
+              <span class="badge badge-warning">● Starting Soon</span>
+            </div>
+          </li>
+
+          <li class="timeline-item">
+            <div class="timeline-time">
+              <time datetime="2026-11-28T14:00">02:00 PM</time>
+              <span>Afternoon Lab</span>
+            </div>
+            <div class="timeline-content">
+              <h4>Embedded IoT Sensor Networks & Hardware Prototyping</h4>
+              <div class="timeline-meta">
+                <span>📍 IoT Hardware Lab 14-202</span>
+                <span>👤 Er. Rajesh Verma</span>
+                <span>Track: Embedded Systems</span>
+              </div>
+            </div>
+            <div class="timeline-status">
+              <span class="badge badge-info">● Kits Ready</span>
+            </div>
+          </li>
+
+          <li class="timeline-item">
+            <div class="timeline-time">
+              <time datetime="2026-11-28T15:30">03:30 PM</time>
+              <span>Late Afternoon</span>
+            </div>
+            <div class="timeline-content">
+              <h4>Practical Machine Learning & Deep Research Pipelines</h4>
+              <div class="timeline-meta">
+                <span>📍 AI Research Lab 28-105</span>
+                <span>👤 Dr. Meenakshi Sundaram</span>
+                <span>Track: AI & Data Science</span>
+              </div>
+            </div>
+            <div class="timeline-status">
+              <span class="badge badge-neutral">● Scheduled</span>
+            </div>
+          </li>
+        </ol>
+      </article>
     </section>
 
     <!-- Section 2: Workshop Discovery & Catalog -->
     <section id="workshops" class="portal-section" aria-labelledby="heading-workshops">
       <header class="section-header">
         <span class="section-kicker">Course Offerings</span>
-        <h2 id="heading-workshops">Available Workshop Catalog</h2>
-        <p>Browse scheduled technical workshops, syllabus tracks, instructor profiles, and seat availability.</p>
+        <h2 id="heading-workshops">Available Technical Workshops</h2>
+        <p>Explore scheduled hands-on workshops, faculty mentors, prerequisite requirements, and available seats.</p>
       </header>
-      <div class="section-placeholder">
-        <!-- Workshop catalog cards will be populated in Commit 2 -->
-        <p>Workshop listings and category cards.</p>
+
+      <!-- Category Filter and Search Toolbar -->
+      <div class="catalog-toolbar" role="region" aria-label="Catalog Filtering">
+        <div class="search-box-wrapper">
+          <label for="catalog-search" class="visually-hidden" style="display:none;">Search Workshops</label>
+          <input type="search" id="catalog-search" class="search-input" placeholder="🔍 Search workshops by title, speaker, or venue..." aria-label="Search workshops">
+        </div>
+        <div class="filter-pills-group" role="tablist" aria-label="Track Categories">
+          <a href="#workshops" class="filter-pill active">All Tracks</a>
+          <a href="#workshops" class="filter-pill">Web Dev</a>
+          <a href="#workshops" class="filter-pill">Cloud & DevOps</a>
+          <a href="#workshops" class="filter-pill">Embedded IoT</a>
+          <a href="#workshops" class="filter-pill">AI & Data</a>
+        </div>
+      </div>
+
+      <!-- Workshop Cards Grid -->
+      <div class="workshop-grid">
+
+        <!-- Workshop Card 1 -->
+        <article class="workshop-card" id="workshop-w101">
+          <div class="card-top-bar">
+            <span class="track-name">Web Development</span>
+            <span class="badge badge-success">38 / 40 Registered</span>
+          </div>
+          <div class="card-body">
+            <h3 class="workshop-card-title">Advanced Semantic Web & Modern CSS Architecture</h3>
+            <div class="instructor-badge">
+              <span class="instructor-avatar" aria-hidden="true">AS</span>
+              <span><strong>Dr. Arvind Sharma</strong> • Dept. of CSE</span>
+            </div>
+            <p class="workshop-description">
+              Master semantic HTML5 markup, responsive CSS Grid and Flexbox layouts, accessible color contrast standards, and scalable CSS custom properties without third-party frameworks.
+            </p>
+            <ul class="workshop-specs-list">
+              <li class="spec-item">
+                <span class="spec-label">Schedule:</span>
+                <span class="spec-value">Nov 28, 2026 • 09:30 AM</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Venue:</span>
+                <span class="spec-value">Computer Lab 34-401 (40 PCs)</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Prerequisites:</span>
+                <span class="spec-value">Basic HTML/CSS fundamentals</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Provided Kit:</span>
+                <span class="spec-value">Semantic Cheatsheet & Lab Repo</span>
+              </li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <span class="seats-indicator">2 Seats Left</span>
+            <a href="#registration" class="btn-primary">Register Now →</a>
+          </div>
+        </article>
+
+        <!-- Workshop Card 2 -->
+        <article class="workshop-card" id="workshop-w102">
+          <div class="card-top-bar">
+            <span class="track-name">Cloud & DevOps</span>
+            <span class="badge badge-warning">36 / 40 Registered</span>
+          </div>
+          <div class="card-body">
+            <h3 class="workshop-card-title">Cloud-Native Microservices & Container Orchestration</h3>
+            <div class="instructor-badge">
+              <span class="instructor-avatar" aria-hidden="true">PN</span>
+              <span><strong>Prof. Priya Nair</strong> • Cloud Architect</span>
+            </div>
+            <p class="workshop-description">
+              Hands-on containerization fundamentals, Docker file optimization, continuous integration triggers, service discovery, and zero-downtime deployment workflows.
+            </p>
+            <ul class="workshop-specs-list">
+              <li class="spec-item">
+                <span class="spec-label">Schedule:</span>
+                <span class="spec-value">Nov 28, 2026 • 11:00 AM</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Venue:</span>
+                <span class="spec-value">Auditorium Block 3 (40 Workstations)</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Prerequisites:</span>
+                <span class="spec-value">Linux CLI & Git basics</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Provided Kit:</span>
+                <span class="spec-value">Cloud Sandbox Access Tokens</span>
+              </li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <span class="seats-indicator">4 Seats Left</span>
+            <a href="#registration" class="btn-primary">Register Now →</a>
+          </div>
+        </article>
+
+        <!-- Workshop Card 3 -->
+        <article class="workshop-card" id="workshop-w103">
+          <div class="card-top-bar">
+            <span class="track-name">Embedded IoT</span>
+            <span class="badge badge-warning">35 / 40 Registered</span>
+          </div>
+          <div class="card-body">
+            <h3 class="workshop-card-title">Embedded IoT Sensor Networks & Hardware Prototyping</h3>
+            <div class="instructor-badge">
+              <span class="instructor-avatar" aria-hidden="true">RV</span>
+              <span><strong>Er. Rajesh Verma</strong> • Embedded Systems Lead</span>
+            </div>
+            <p class="workshop-description">
+              Build connected sensor arrays using ESP32 microcontrollers, collect real-time environmental telemetry, and route data streams over MQTT to local monitoring dashboards.
+            </p>
+            <ul class="workshop-specs-list">
+              <li class="spec-item">
+                <span class="spec-label">Schedule:</span>
+                <span class="spec-value">Nov 28, 2026 • 02:00 PM</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Venue:</span>
+                <span class="spec-value">IoT Hardware Lab 14-202</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Prerequisites:</span>
+                <span class="spec-value">Basic C/C++ or Python syntax</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Provided Kit:</span>
+                <span class="spec-value">ESP32 Dev Kit + Sensor Bundle</span>
+              </li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <span class="seats-indicator">5 Seats Left</span>
+            <a href="#registration" class="btn-primary">Register Now →</a>
+          </div>
+        </article>
+
+        <!-- Workshop Card 4 -->
+        <article class="workshop-card" id="workshop-w104">
+          <div class="card-top-bar">
+            <span class="track-name">AI & Data Science</span>
+            <span class="badge badge-danger">33 / 40 Registered</span>
+          </div>
+          <div class="card-body">
+            <h3 class="workshop-card-title">Practical Machine Learning & Deep Research Pipelines</h3>
+            <div class="instructor-badge">
+              <span class="instructor-avatar" aria-hidden="true">MS</span>
+              <span><strong>Dr. Meenakshi Sundaram</strong> • AI Researcher</span>
+            </div>
+            <p class="workshop-description">
+              Explore generative AI architectures, prompt orchestration, structured function-calling schemas, and document retrieval agents with verified benchmark evaluations.
+            </p>
+            <ul class="workshop-specs-list">
+              <li class="spec-item">
+                <span class="spec-label">Schedule:</span>
+                <span class="spec-value">Nov 28, 2026 • 03:30 PM</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Venue:</span>
+                <span class="spec-value">AI Research Lab 28-105</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Prerequisites:</span>
+                <span class="spec-value">Python programming & basic math</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Provided Kit:</span>
+                <span class="spec-value">Jupyter Notebooks & Model Credits</span>
+              </li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <span class="seats-indicator">7 Seats Left</span>
+            <a href="#registration" class="btn-primary">Register Now →</a>
+          </div>
+        </article>
+
       </div>
     </section>
 
