@@ -1,47 +1,22 @@
 /* ==========================================================================
-   WORKSHOP MANAGEMENT SYSTEM (WMS) - SIMPLIFIED STYLESHEET
-   Course: CSE326 | Academic Task: CA1 Project-Based Assessment
-   Team 19: Harsimran Singh (12601847), Yuvraj (12601876), Sakalabattula Pardhu (12625518)
+   WORKSHOP MANAGEMENT SYSTEM (WMS)
+   CSE326 CA1 Academic Project | Team 19
+   Harsimran Singh (12601847), Yuvraj (12601876), Sakalabattula Pardhu (12625518)
    ========================================================================== */
 
-/* --------------------------------------------------------------------------
-   1. COLOR PALETTE & DESIGN VARIABLES (:root)
-   Simple CSS variables for quick theme adjustments during viva.
-   -------------------------------------------------------------------------- */
+/* 1. Flat Design Tokens (1 flat background, 1 surface, 1 solid accent) */
 :root {
-  /* Brand & Accent Colors (Rich, cheerful, human-friendly tones) */
-  --primary: #2563eb;          /* Royal Blue - Main brand & buttons */
-  --primary-dark: #1d4ed8;     /* Darker blue for hover states */
-  --primary-light: #eff6ff;    /* Soft blue tint for highlights */
-  --accent: #0d9488;           /* Fresh Teal - Secondary badges & metrics */
-  --accent-light: #f0fdfa;
-
-  /* Status Colors */
-  --success: #16a34a;          /* Green - Present / In Stock */
-  --success-bg: #dcfce7;
-  --warning: #d97706;          /* Amber - Waitlist / Late */
-  --warning-bg: #fef3c7;
-  --danger: #dc2626;           /* Red - Absent / Required */
-  --danger-bg: #fee2e2;
-
-  /* Neutral Text & Surface Colors */
-  --bg-page: #f8fafc;          /* Soft light-gray canvas background */
-  --bg-card: #ffffff;          /* Pure white for cards & tables */
-  --bg-subtle: #f1f5f9;        /* Light slate for headers & hover rows */
-  --text-dark: #1e293b;        /* Deep slate for headings */
-  --text-body: #334155;        /* Clear dark text for body copy */
-  --text-muted: #64748b;       /* Muted gray for captions & dates */
-  --border: #cbd5e1;           /* Crisp border for inputs & tables */
-
-  /* Standard Spacing & Radius */
-  --radius: 8px;
-  --shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  --bg-color: #f3f4f6;       /* Clean flat light gray page background */
+  --surface-color: #ffffff;  /* Solid white for panels and tables */
+  --accent-color: #1e3a8a;   /* Solid academic navy blue */
+  --accent-hover: #172554;
+  --text-dark: #111827;      /* Clear high-contrast dark text */
+  --text-body: #374151;      /* Standard readable body text */
+  --text-muted: #6b7280;     /* Muted gray for small notes */
+  --border-color: #d1d5db;   /* Crisp 1px solid border */
 }
 
-/* --------------------------------------------------------------------------
-   2. BASIC RESET & BASE STYLES
-   Ensures consistent layout, proper box-sizing, and clean font rendering.
-   -------------------------------------------------------------------------- */
+/* 2. Base Reset */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -49,373 +24,232 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.5;
   color: var(--text-body);
-  background-color: var(--bg-page);
+  background-color: var(--bg-color);
 }
 
-/* Centered content container */
 .container {
-  width: 92%;
-  max-width: 1140px;
+  width: 94%;
+  max-width: 1040px;
   margin: 0 auto;
 }
 
-/* --------------------------------------------------------------------------
-   3. SITE HEADER & NAVIGATION
-   Header has a rich royal blue gradient; navigation bar sticks to top.
-   -------------------------------------------------------------------------- */
+/* 3. Site Header & Nav */
 .site-header {
-  background: linear-gradient(135deg, #1e40af, #2563eb);
+  background-color: var(--accent-color);
   color: #ffffff;
-  padding: 24px 0;
-  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.2);
+  padding: 18px 0;
+  border-bottom: 3px solid #0f172a;
 }
 
-.header-flex {
+.header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
 }
 
 .site-header h1 {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
+  font-weight: 700;
   color: #ffffff;
-  margin-bottom: 4px;
 }
 
 .site-header p {
-  color: #bfdbfe;
-  font-size: 0.95rem;
-}
-
-.team-pill {
-  background-color: #fef3c7;
-  color: #92400e;
-  font-weight: 700;
   font-size: 0.85rem;
-  padding: 6px 14px;
-  border-radius: 20px;
-  border: 1px solid #fde68a;
+  color: #e2e8f0;
 }
 
-/* Sticky Navigation Bar */
+.team-badge {
+  background-color: #ffffff;
+  color: var(--accent-color);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+/* Navigation */
 .navbar {
+  background-color: #0f172a;
+  border-bottom: 1px solid #1e293b;
   position: sticky;
   top: 0;
-  background-color: #0f172a;
-  z-index: 100;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  z-index: 10;
 }
 
-.nav-links {
+.nav-menu {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  padding: 10px 0;
+  gap: 4px;
+  padding: 6px 0;
 }
 
-.nav-links a {
-  color: #cbd5e1;
+.nav-menu a {
+  color: #e2e8f0;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 500;
-  padding: 6px 12px;
-  border-radius: var(--radius);
-  transition: all 0.2s;
+  padding: 6px 10px;
+  border-radius: 3px;
 }
 
-.nav-links a:hover {
-  background-color: var(--primary);
+.nav-menu a:hover {
+  background-color: var(--accent-color);
   color: #ffffff;
 }
 
-/* --------------------------------------------------------------------------
-   4. SECTION LAYOUT & CARDS
-   Reusable sections with clean white card containers and colorful accents.
-   -------------------------------------------------------------------------- */
-.section {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 28px;
-  margin: 32px auto;
-  scroll-margin-top: 60px; /* Offset for sticky nav */
+/* 4. Page Sections */
+.panel {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  padding: 22px;
+  margin: 20px auto;
+  scroll-margin-top: 50px;
 }
 
-.section-title {
-  font-size: 1.4rem;
+h2 {
+  font-size: 1.25rem;
   color: var(--text-dark);
-  margin-bottom: 6px;
-  border-bottom: 2px solid var(--bg-subtle);
+  margin-bottom: 4px;
+}
+
+.panel-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 8px;
 }
 
-.section-desc {
-  font-size: 0.95rem;
+/* 5. Metrics & Dashboard Summary */
+.summary-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.summary-item {
+  flex: 1;
+  min-width: 140px;
+  border: 1px solid var(--border-color);
+  padding: 10px 14px;
+  background-color: #f9fafb;
+}
+
+.summary-label {
+  font-size: 0.75rem;
   color: var(--text-muted);
-  margin-bottom: 20px;
-}
-
-/* Simple Responsive Grids */
-.grid-4 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-  margin-bottom: 20px;
-}
-
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.grid-2 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
-}
-
-/* --------------------------------------------------------------------------
-   5. DASHBOARD STAT CARDS & SCHEDULE
-   Colorful top stripes distinguish each key performance metric.
-   -------------------------------------------------------------------------- */
-.stat-card {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px;
-  border-top: 4px solid var(--primary);
-  box-shadow: var(--shadow);
-}
-
-.stat-card.green { border-top-color: var(--success); }
-.stat-card.teal  { border-top-color: var(--accent); }
-.stat-card.amber { border-top-color: var(--warning); }
-
-.stat-title {
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
-  color: var(--text-muted);
 }
 
-.stat-num {
-  font-size: 1.7rem;
-  font-weight: 800;
+.summary-val {
+  font-size: 1.3rem;
+  font-weight: 700;
   color: var(--text-dark);
-  margin: 6px 0;
-}
-
-.stat-desc {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-/* Simple Capacity Progress Meter */
-.progress-bar-box {
-  background-color: var(--bg-subtle);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px;
-  margin-bottom: 20px;
-}
-
-.progress-bar-box h3 {
-  font-size: 1rem;
-  color: var(--text-dark);
-  margin-bottom: 6px;
+  margin-top: 2px;
 }
 
 progress {
   width: 100%;
-  height: 12px;
-  border-radius: 10px;
-  overflow: hidden;
+  height: 10px;
+  margin-top: 6px;
+  accent-color: var(--accent-color);
 }
 
-/* Schedule List */
-.schedule-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+/* 6. Tables (Clean, authentic student tables) */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
 }
 
-.schedule-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 12px 16px;
-  background-color: var(--bg-page);
-  border-left: 4px solid var(--primary);
-  border-radius: 4px;
-}
-
-/* --------------------------------------------------------------------------
-   6. WORKSHOP CATALOG CARDS
-   Clean cards with badges, instructor details, and register buttons.
-   -------------------------------------------------------------------------- */
-.workshop-card {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: #ffffff;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.workshop-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.workshop-tag {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 4px;
-  background-color: var(--primary-light);
-  color: var(--primary-dark);
-  margin-bottom: 10px;
-}
-
-.workshop-card h3 {
-  font-size: 1.15rem;
-  color: var(--text-dark);
-  margin-bottom: 8px;
-}
-
-.workshop-card p {
-  font-size: 0.9rem;
-  color: var(--text-body);
-  margin-bottom: 16px;
-}
-
-.workshop-meta {
+table {
+  width: 100%;
+  border-collapse: collapse;
   font-size: 0.85rem;
-  color: var(--text-muted);
-  list-style: none;
-  margin-bottom: 16px;
-  border-top: 1px dashed var(--border);
-  padding-top: 10px;
+  text-align: left;
 }
 
-.workshop-meta li {
-  margin-bottom: 4px;
+th, td {
+  padding: 9px 12px;
+  border: 1px solid var(--border-color);
 }
 
-/* --------------------------------------------------------------------------
-   7. BUTTONS & STATUS BADGES
-   Crisp, colorful, self-explanatory UI elements.
-   -------------------------------------------------------------------------- */
-.btn {
-  display: inline-block;
-  background-color: var(--primary);
-  color: #ffffff;
-  padding: 8px 16px;
-  border-radius: var(--radius);
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  text-align: center;
-  transition: background-color 0.2s;
-}
-
-.btn:hover {
-  background-color: var(--primary-dark);
-}
-
-.btn-secondary {
-  background-color: var(--bg-subtle);
+thead th {
+  background-color: #f3f4f6;
   color: var(--text-dark);
-  border: 1px solid var(--border);
+  font-weight: 600;
 }
 
-.btn-secondary:hover {
-  background-color: #e2e8f0;
+tbody tr:nth-child(even) {
+  background-color: #f9fafb;
 }
 
 /* Status Badges */
-.badge {
+.status {
   display: inline-block;
+  padding: 2px 6px;
   font-size: 0.75rem;
-  font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 12px;
+  font-weight: 600;
+  border-radius: 3px;
 }
 
-.badge-success { background-color: var(--success-bg); color: var(--success); }
-.badge-warning { background-color: var(--warning-bg); color: var(--warning); }
-.badge-danger  { background-color: var(--danger-bg);  color: var(--danger); }
-.badge-info    { background-color: var(--primary-light); color: var(--primary-dark); }
+.status-green { background-color: #dcfce7; color: #166534; }
+.status-amber { background-color: #fef3c7; color: #92400e; }
+.status-red   { background-color: #fee2e2; color: #991b1b; }
+.status-blue  { background-color: #dbeafe; color: #1e40af; }
 
-/* --------------------------------------------------------------------------
-   8. FORMS & INPUT CONTROLS
-   Standard semantic forms with fieldsets, legends, and clean focus rings.
-   -------------------------------------------------------------------------- */
+/* 7. Forms */
 form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 fieldset {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px 20px;
+  border: 1px solid var(--border-color);
+  padding: 14px;
 }
 
 legend {
-  font-weight: 700;
-  color: var(--primary-dark);
-  padding: 0 8px;
-  font-size: 0.95rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  padding: 0 6px;
 }
 
-.form-row {
+.form-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
-  margin-top: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
 }
 
-.form-group {
+.form-field {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
 label {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--text-dark);
 }
 
 input[type="text"],
 input[type="email"],
-input[type="tel"],
 select,
 textarea {
-  width: 100%;
-  padding: 8px 12px;
-  font-size: 0.9rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  padding: 7px 10px;
+  font-size: 0.85rem;
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
   background-color: #ffffff;
   color: var(--text-dark);
 }
@@ -423,208 +257,133 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  outline: 2px solid var(--accent-color);
+  outline-offset: 1px;
 }
 
-.checkbox-label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  margin-top: 6px;
-}
-
-/* --------------------------------------------------------------------------
-   9. TABLES (LOGISTICS & ATTENDANCE)
-   Clean, striped, accessible tables with horizontal mobile scrolling.
-   -------------------------------------------------------------------------- */
-.table-wrap {
-  width: 100%;
-  overflow-x: auto;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  margin-top: 12px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.9rem;
-  text-align: left;
-}
-
-th, td {
-  padding: 12px 14px;
-  border-bottom: 1px solid var(--border);
-}
-
-thead th {
-  background-color: var(--bg-subtle);
-  color: var(--text-dark);
-  font-weight: 700;
+.btn {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: #ffffff;
+  padding: 8px 16px;
   font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 2px;
+  align-self: flex-start;
 }
 
-tbody tr:nth-child(even) {
-  background-color: #f8fafc;
+.btn:hover {
+  background-color: var(--accent-hover);
 }
 
-tbody tr:hover {
-  background-color: #eff6ff;
+.btn-light {
+  background-color: #e5e7eb;
+  color: var(--text-dark);
+  border: 1px solid #d1d5db;
 }
 
-/* --------------------------------------------------------------------------
-   10. CERTIFICATE PREVIEW (WARM ACADEMIC LOOK)
-   Framed with classic university royal blue and warm gold border accents.
-   -------------------------------------------------------------------------- */
-.cert-card {
-  background-color: #ffffff;
-  border: 6px double #1e40af;
-  outline: 2px dashed #d97706;
-  outline-offset: -8px;
-  border-radius: var(--radius);
-  padding: 32px 24px;
+.btn-light:hover {
+  background-color: #d1d5db;
+}
+
+/* 8. Certificate Preview */
+.cert-box {
+  border: 3px double var(--accent-color);
+  padding: 24px;
   text-align: center;
-  box-shadow: var(--shadow);
-  margin-top: 16px;
+  background-color: #ffffff;
+  margin: 10px 0;
 }
 
-.cert-card h3 {
-  font-family: Georgia, serif;
-  font-size: 1.5rem;
-  color: #1e40af;
+.cert-box h3 {
+  font-size: 1.25rem;
+  color: var(--accent-color);
+  margin: 6px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cert-student {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  border-bottom: 1px solid var(--border-color);
+  display: inline-block;
+  padding: 0 16px 2px;
   margin: 8px 0;
 }
 
-.cert-name {
-  font-family: Georgia, serif;
-  font-size: 1.7rem;
-  font-weight: bold;
-  color: #0f172a;
-  border-bottom: 2px solid #cbd5e1;
-  display: inline-block;
-  padding: 0 20px 4px;
-  margin: 12px 0;
-}
-
-.cert-body {
-  font-size: 0.95rem;
+.cert-text {
+  font-size: 0.85rem;
+  max-width: 580px;
+  margin: 0 auto 14px;
   color: var(--text-body);
-  max-width: 600px;
-  margin: 0 auto 20px;
 }
 
-.cert-signatures {
+.cert-footer {
   display: flex;
   justify-content: space-around;
-  margin-top: 24px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-}
-
-.sign-block {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-.sign-block strong {
-  display: block;
-  color: var(--text-dark);
-}
-
-/* --------------------------------------------------------------------------
-   11. TEAM CARDS & FOOTER
-   Team 19 member breakdown and academic credits.
-   -------------------------------------------------------------------------- */
-.team-member {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px;
-  background-color: var(--bg-card);
-  border-top: 3px solid var(--accent);
-}
-
-.team-member h3 {
-  font-size: 1.1rem;
-  color: var(--text-dark);
-}
-
-.team-member .role {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #e5e7eb;
   font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
-.team-member .reg-no {
-  font-size: 0.85rem;
   color: var(--text-muted);
-  margin-bottom: 8px;
 }
 
-.team-member ul {
+/* 9. Team Roster */
+.team-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.member-box {
+  border: 1px solid var(--border-color);
+  padding: 12px;
+  background-color: #f9fafb;
+}
+
+.member-box h3 {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+}
+
+.member-box p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.member-box ul {
   padding-left: 18px;
-  font-size: 0.85rem;
-  color: var(--text-body);
+  margin-top: 6px;
+  font-size: 0.8rem;
 }
 
-/* Footer */
+/* 10. Footer */
 footer {
   background-color: #0f172a;
   color: #94a3b8;
-  padding: 24px 0;
+  padding: 16px 0;
+  font-size: 0.8rem;
   text-align: center;
-  font-size: 0.85rem;
-  margin-top: 40px;
+  margin-top: 24px;
 }
 
 footer strong {
   color: #ffffff;
 }
 
-/* --------------------------------------------------------------------------
-   12. PRINT MEDIA (FOR CERTIFICATES)
-   Hides navigation and forms when printing via Ctrl+P.
-   -------------------------------------------------------------------------- */
+/* Print Styles */
 @media print {
-  .site-header,
-  .navbar,
-  #dashboard,
-  #workshops,
-  #registration,
-  #materials,
-  #attendance,
-  #feedback,
-  #team,
-  footer,
-  .btn {
+  .site-header, .navbar, footer, .btn,
+  #dashboard, #workshops, #registration, #materials, #attendance, #feedback, #team {
     display: none !important;
   }
-
-  .cert-card {
-    border: 4px double #000000 !important;
-    outline: none !important;
-    box-shadow: none !important;
-  }
-}
-
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-  .header-flex {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .grid-2, .grid-3, .grid-4 {
-    grid-template-columns: 1fr;
-  }
-
-  .section {
-    padding: 18px;
+  .cert-box {
+    border: 2px solid #000000 !important;
+    padding: 20px !important;
   }
 }
