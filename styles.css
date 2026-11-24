@@ -1509,3 +1509,85 @@ img {
     width: 100% !important;
   }
 }
+
+/* --------------------------------------------------------------------------
+   PART 12: ACADEMIC TEAM 19 SHOWCASE CARDS
+   Visual cards highlighting each team member's role and viva contributions.
+   -------------------------------------------------------------------------- */
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+  margin-top: var(--space-4);
+}
+
+.team-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.team-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+.team-card-header {
+  padding: var(--space-5);
+  background-color: var(--color-bg-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.team-role-badge {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+}
+
+.team-card-header h3 {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-main);
+  margin: 0;
+}
+
+.team-reg-pill {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-subtle);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: var(--space-1);
+}
+
+.team-card-body {
+  padding: var(--space-5);
+  flex-grow: 1;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.team-card-body ul {
+  padding-left: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+.team-card-body li {
+  margin-bottom: var(--space-2);
+  line-height: 1.4;
+}
