@@ -412,12 +412,180 @@
       <header class="section-header">
         <span class="section-kicker">Enrollment Portal</span>
         <h2 id="heading-registration">Workshop Participant Registration</h2>
-        <p>Structured multi-fieldset registration form with input validation and session preferences.</p>
+        <p>Structured multi-fieldset registration form with native input validation, seat reservation, and kit selection.</p>
       </header>
-      <div class="section-placeholder">
-        <!-- Registration form will be populated in Commit 3 -->
-        <p>Structured participant registration form.</p>
-      </div>
+
+      <!-- Simulated Registration Alert -->
+      <aside class="alert-box alert-info" role="status">
+        <span aria-hidden="true">ℹ️</span>
+        <div>
+          <strong>Registration Notice:</strong> Seats are confirmed on a first-come, first-served basis. Please ensure your 8-digit university registration number is entered accurately for attendance and certificate issuance.
+        </div>
+      </aside>
+
+      <!-- Registration Form -->
+      <form action="#registration" method="get" class="form-card" novalidate>
+
+        <!-- Fieldset 1: Participant Identity -->
+        <fieldset class="form-fieldset">
+          <legend class="form-legend">
+            <span aria-hidden="true">👤</span> Step 1: Participant Information
+          </legend>
+          
+          <div class="form-grid-3">
+            <div class="form-group">
+              <label for="reg-fullname" class="form-label">
+                Full Name <span class="required-star" title="Required">*</span>
+              </label>
+              <input type="text" id="reg-fullname" name="fullname" class="form-control" placeholder="e.g. Harsimran Singh" required autocomplete="name">
+              <span class="form-hint">Enter your official university name</span>
+            </div>
+
+            <div class="form-group">
+              <label for="reg-email" class="form-label">
+                University Email <span class="required-star" title="Required">*</span>
+              </label>
+              <input type="email" id="reg-email" name="email" class="form-control" placeholder="e.g. student@lpu.in" required autocomplete="email">
+              <span class="form-hint">Used for certificate and schedule updates</span>
+            </div>
+
+            <div class="form-group">
+              <label for="reg-number" class="form-label">
+                Registration Number <span class="required-star" title="Required">*</span>
+              </label>
+              <input type="text" id="reg-number" name="regNumber" class="form-control" placeholder="e.g. 12601847" pattern="[0-9]{8}" required>
+              <span class="form-hint">Must be exact 8-digit student ID</span>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="reg-phone" class="form-label">Contact Mobile Number</label>
+              <input type="tel" id="reg-phone" name="phone" class="form-control" placeholder="+91 98765-43210" autocomplete="tel">
+            </div>
+
+            <div class="form-group">
+              <label for="reg-dept" class="form-label">
+                Academic School / Department <span class="required-star" title="Required">*</span>
+              </label>
+              <select id="reg-dept" name="department" class="form-control" required>
+                <option value="">-- Select Your Department --</option>
+                <option value="cse" selected>School of Computer Science & Engineering (SCSE)</option>
+                <option value="it">Department of Information Technology</option>
+                <option value="ece">Electronics & Communication Engineering</option>
+                <option value="mech">Mechanical & Mechatronics Engineering</option>
+                <option value="biotech">Department of Biotechnology</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Fieldset 2: Workshop Track & Session -->
+        <fieldset class="form-fieldset">
+          <legend class="form-legend">
+            <span aria-hidden="true">🎯</span> Step 2: Workshop Track & Session Selection
+          </legend>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="reg-workshop" class="form-label">
+                Select Workshop Track <span class="required-star" title="Required">*</span>
+              </label>
+              <select id="reg-workshop" name="workshopTrack" class="form-control" required>
+                <option value="">-- Choose Workshop --</option>
+                <optgroup label="Frontend & Architecture">
+                  <option value="w101" selected>Advanced Semantic Web & Modern CSS Architecture (Dr. Arvind Sharma)</option>
+                </optgroup>
+                <optgroup label="Cloud & Infrastructure">
+                  <option value="w102">Cloud-Native Microservices & Container Orchestration (Prof. Priya Nair)</option>
+                </optgroup>
+                <optgroup label="Hardware & Embedded">
+                  <option value="w103">Embedded IoT Sensor Networks & Hardware Prototyping (Er. Rajesh Verma)</option>
+                </optgroup>
+                <optgroup label="Artificial Intelligence">
+                  <option value="w104">Practical Machine Learning & Deep Research Pipelines (Dr. Meenakshi Sundaram)</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Preferred Session Slot <span class="required-star" title="Required">*</span></label>
+              <div class="options-group">
+                <label class="option-label">
+                  <input type="radio" name="sessionSlot" value="morning" checked required>
+                  <span>Morning Session (09:30 AM - 12:30 PM)</span>
+                </label>
+                <label class="option-label">
+                  <input type="radio" name="sessionSlot" value="afternoon" required>
+                  <span>Afternoon Session (02:00 PM - 05:00 PM)</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Fieldset 3: Material Requirements & Kit Preferences -->
+        <fieldset class="form-fieldset">
+          <legend class="form-legend">
+            <span aria-hidden="true">📦</span> Step 3: Material Requirements & Logistics Pickup
+          </legend>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Requested Workshop Materials</label>
+              <div class="options-group">
+                <label class="option-label">
+                  <input type="checkbox" name="materials" value="hardware-kit" checked>
+                  <span>Physical Hardware Prototyping Kit (ESP32, Sensors, Wires)</span>
+                </label>
+                <label class="option-label">
+                  <input type="checkbox" name="materials" value="printed-handbook" checked>
+                  <span>Printed Comprehensive Lab Manual & Syntax Cheatsheet</span>
+                </label>
+                <label class="option-label">
+                  <input type="checkbox" name="materials" value="cloud-voucher">
+                  <span>Cloud Sandbox & Model Inference API Token Pass</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="reg-pickup" class="form-label">
+                Designated Material Pickup Counter <span class="required-star" title="Required">*</span>
+              </label>
+              <select id="reg-pickup" name="pickupDesk" class="form-control" required>
+                <option value="desk-a" selected>Counter Desk A (Block 34, Central Computer Lab Foyer)</option>
+                <option value="desk-b">Counter Desk B (Auditorium Block 3 Entrance)</option>
+                <option value="desk-c">Counter Desk C (Innovation Studio Block 14)</option>
+              </select>
+              <span class="form-hint">Collect your kit 15 minutes before session commencement</span>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="reg-notes" class="form-label">Special Accommodations / Lab Prerequisites Note</label>
+              <textarea id="reg-notes" name="notes" class="form-control" rows="2" placeholder="Mention any special accommodations, accessibility needs, or bring-your-own-device details..."></textarea>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Fieldset 4: Declaration & Terms -->
+        <fieldset class="form-fieldset">
+          <legend class="form-legend">
+            <span aria-hidden="true">📋</span> Step 4: Attendance Commitment & Terms
+          </legend>
+          <label class="option-label">
+            <input type="checkbox" name="attendancePledge" required checked>
+            <span>I confirm that I will attend all scheduled sessions (minimum 80% attendance required for certificate eligibility) and comply with laboratory equipment guidelines.</span>
+          </label>
+        </fieldset>
+
+        <!-- Form Actions Bar -->
+        <div class="form-actions-bar">
+          <button type="reset" class="btn-secondary">Clear Form</button>
+          <button type="submit" class="btn-primary">Confirm & Register Attendee →</button>
+        </div>
+
+      </form>
     </section>
 
     <!-- Section 4: Material Requirements & Kit Logistics -->
@@ -425,11 +593,107 @@
       <header class="section-header">
         <span class="section-kicker">Resource Planning</span>
         <h2 id="heading-materials">Material Requirements & Hardware Kits</h2>
-        <p>Inventory tracking, hardware kit allocations, software prerequisites, and distribution desks.</p>
+        <p>Centralized inventory management, hardware kit distribution desks, software dependencies, and downloadable manuals.</p>
       </header>
-      <div class="section-placeholder">
-        <!-- Materials logistics table will be populated in Commit 3 -->
-        <p>Material logistics table and kit requirements.</p>
+
+      <!-- Material Allocation Data Table -->
+      <div class="table-responsive-wrapper">
+        <table class="data-table">
+          <caption>Inventory & Material Distribution Roster (Academic Year 2026-27)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Kit Code</th>
+              <th scope="col">Material / Hardware Specification</th>
+              <th scope="col">Target Workshop Track</th>
+              <th scope="col">Allocated / Stock</th>
+              <th scope="col">Pickup Desk</th>
+              <th scope="col">Fulfillment Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="mono-cell">KIT-ESP32-V2</td>
+              <td><strong>ESP32 IoT Prototyping Bundle</strong><br><small>ESP32 NodeMCU, DHT22 Sensor, Breadboard, Jumper Wires</small></td>
+              <td>Embedded IoT (W103)</td>
+              <td>35 / 40 Kits</td>
+              <td>Counter Desk C</td>
+              <td><span class="badge badge-success">✓ Ready for Pickup</span></td>
+            </tr>
+            <tr>
+              <td class="mono-cell">ACC-CLOUD-KEY</td>
+              <td><strong>Cloud Platform API Vouchers</strong><br><small>$50 Cloud Credit Voucher & Docker Sandbox Secrets</small></td>
+              <td>Cloud & DevOps (W102)</td>
+              <td>36 / 40 Keys</td>
+              <td>Counter Desk B</td>
+              <td><span class="badge badge-success">✓ Dispatched</span></td>
+            </tr>
+            <tr>
+              <td class="mono-cell">DOC-SEM-CSS</td>
+              <td><strong>Semantic HTML & CSS Reference Manual</strong><br><small>Spiral-bound 64-page syntax guide & accessibility checklist</small></td>
+              <td>Web Development (W101)</td>
+              <td>38 / 40 Manuals</td>
+              <td>Counter Desk A</td>
+              <td><span class="badge badge-success">✓ In Stock</span></td>
+            </tr>
+            <tr>
+              <td class="mono-cell">ACC-GPU-PASS</td>
+              <td><strong>High-Performance GPU Cluster Key</strong><br><small>NVIDIA A100 Jupyter Lab environment access pass</small></td>
+              <td>AI & Data Science (W104)</td>
+              <td>33 / 40 Passes</td>
+              <td>Digital Delivery</td>
+              <td><span class="badge badge-info">● Active Digital Pass</span></td>
+            </tr>
+            <tr>
+              <td class="mono-cell">LOG-SMART-ID</td>
+              <td><strong>NFC Attendee Smart Badge & Lanyard</strong><br><small>RFID-encoded session check-in pass with Team 19 stamp</small></td>
+              <td>All Registered Tracks</td>
+              <td>142 / 160 Badges</td>
+              <td>Central Reception</td>
+              <td><span class="badge badge-success">✓ 100% Prepared</span></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3">Aggregate Inventory Fulfillment Summary</td>
+              <td><strong>284 Items Allocated</strong></td>
+              <td colspan="2"><strong>Readiness Rate: 98.6%</strong></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <!-- Native Accordions for Prerequisites & Manuals -->
+      <div class="accordion-group">
+        <details class="accordion-item" open>
+          <summary class="accordion-summary">
+            <span>⚙️ Software Environment Prerequisites & Setup Instructions</span>
+            <span aria-hidden="true">▾</span>
+          </summary>
+          <div class="accordion-content">
+            <p>Ensure your personal workstation or lab PC has the following standard software installed before attending sessions:</p>
+            <ul>
+              <li><strong>Web Development Track:</strong> Modern Evergreen Browser (Chrome 120+, Firefox 122+, or Edge), Visual Studio Code with Live Server extension.</li>
+              <li><strong>Cloud & DevOps Track:</strong> Docker Desktop / Engine v24+, Git CLI 2.40+, and Bash/Zsh terminal shell.</li>
+              <li><strong>Embedded IoT Track:</strong> Arduino IDE 2.3+ or VS Code with PlatformIO, CP210x USB to UART Bridge VCP Drivers.</li>
+              <li><strong>AI & Data Science:</strong> Python 3.11+, JupyterLab, NumPy, Pandas, and PyTorch (CPU or CUDA enabled).</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="accordion-item">
+          <summary class="accordion-summary">
+            <span>📋 Hardware Safety & Lab Equipment Handling Protocol</span>
+            <span aria-hidden="true">▾</span>
+          </summary>
+          <div class="accordion-content">
+            <p>All hardware kit recipients must adhere to standard university electronics handling protocols:</p>
+            <ul>
+              <li>Always disconnect USB power before modifying circuit connections on the solderless breadboard.</li>
+              <li>Do not exceed 3.3V input on ESP32 GPIO pins to prevent sensor or controller gate burnout.</li>
+              <li>Hardware kits are issued under student university registration numbers and must be checked back in following the final showcase.</li>
+            </ul>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -438,11 +702,99 @@
       <header class="section-header">
         <span class="section-kicker">Roster & Verification</span>
         <h2 id="heading-attendance">Session Attendance Tracking</h2>
-        <p>Live session check-in roster, verification badges, and attendance eligibility summary.</p>
+        <p>Live session attendance logging, timestamp verification, and certificate eligibility evaluation.</p>
       </header>
-      <div class="section-placeholder">
-        <!-- Attendance roster table will be populated in Commit 3 -->
-        <p>Session attendance roster table.</p>
+
+      <!-- Session Roster Controls & Stats -->
+      <aside class="capacity-tracker-card">
+        <div class="capacity-tracker-header">
+          <div>
+            <h3>Session 1: Hands-on Lab Check-in Roster</h3>
+            <p>Monitoring attendee verification for <strong>Computer Lab 34-401</strong> (Morning Track).</p>
+          </div>
+          <span class="capacity-metric">37 Present • 1 Late • 2 Absent (95.0% Attendance)</span>
+        </div>
+        <progress class="capacity-progress" value="38" max="40">95%</progress>
+      </aside>
+
+      <!-- Attendance Table -->
+      <div class="table-responsive-wrapper">
+        <table class="data-table">
+          <caption>Live Session Attendance Verification Log</caption>
+          <thead>
+            <tr>
+              <th scope="col">Attendee ID</th>
+              <th scope="col">Student Name</th>
+              <th scope="col">Reg Number</th>
+              <th scope="col">Enrolled Track</th>
+              <th scope="col">Check-in Time</th>
+              <th scope="col">Verification Status</th>
+              <th scope="col">Certificate Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="mono-cell">ATT-1901</td>
+              <td><strong>Harsimran Singh</strong></td>
+              <td class="mono-cell">12601847</td>
+              <td>Web Development (W101)</td>
+              <td><time datetime="2026-11-28T09:18">09:18 AM</time></td>
+              <td><span class="badge badge-success">✓ Present (On Time)</span></td>
+              <td><span class="badge badge-success">Eligible</span></td>
+            </tr>
+            <tr>
+              <td class="mono-cell">ATT-1902</td>
+              <td><strong>Yuvraj</strong></td>
+              <td class="mono-cell">12601876</td>
+              <td>Web Development (W101)</td>
+              <td><time datetime="2026-11-28T09:22">09:22 AM</time></td>
+              <td><span class="badge badge-success">✓ Present (On Time)</span></td>
+              <td><span class="badge badge-success">Eligible</span></td>
+            </tr>
+            <tr>
+              <td class="mono-cell">ATT-1903</td>
+              <td><strong>Sakalabattula Pardhu</strong></td>
+              <td class="mono-cell">12625518</td>
+              <td>Embedded IoT (W103)</td>
+              <td><time datetime="2026-11-28T09:14">09:14 AM</time></td>
+              <td><span class="badge badge-success">✓ Present (On Time)</span></td>
+              <td><span class="badge badge-success">Eligible</span></td>
+            </tr>
+            <tr>
+              <td class="mono-cell">ATT-1904</td>
+              <td><strong>Ananya Sharma</strong></td>
+              <td class="mono-cell">12614520</td>
+              <td>Cloud & DevOps (W102)</td>
+              <td><time datetime="2026-11-28T09:25">09:25 AM</time></td>
+              <td><span class="badge badge-success">✓ Present (On Time)</span></td>
+              <td><span class="badge badge-success">Eligible</span></td>
+            </tr>
+            <tr>
+              <td class="mono-cell">ATT-1905</td>
+              <td><strong>Rohan Verma</strong></td>
+              <td class="mono-cell">12621044</td>
+              <td>AI & Data Science (W104)</td>
+              <td><time datetime="2026-11-28T09:44">09:44 AM</time></td>
+              <td><span class="badge badge-warning">⏱ Late (+14m)</span></td>
+              <td><span class="badge badge-success">Eligible</span></td>
+            </tr>
+            <tr>
+              <td class="mono-cell">ATT-1906</td>
+              <td><strong>Simran Kaur</strong></td>
+              <td class="mono-cell">12618932</td>
+              <td>Web Development (W101)</td>
+              <td>—</td>
+              <td><span class="badge badge-danger">✗ Absent</span></td>
+              <td><span class="badge badge-warning">Review Needed</span></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4">Session Roster Verification Audit</td>
+              <td colspan="3"><strong>Audited by Workshop Coordinator • Team 19</strong></td>
+            </tr>
+          </tfoot>
+        </table>
       </div>
     </section>
 
@@ -451,11 +803,88 @@
       <header class="section-header">
         <span class="section-kicker">Credentials & Badges</span>
         <h2 id="heading-certificates">Certificate Generation & Credential Preview</h2>
-        <p>Generate, verify, and preview official completion certificates with criteria checklist.</p>
+        <p>Automated verification against attendance criteria and high-resolution official completion certificate preview.</p>
       </header>
-      <div class="section-placeholder">
-        <!-- Certificate generator and preview will be populated in Commit 3 -->
-        <p>Certificate generation tool and printable credential preview.</p>
+
+      <div class="certificate-layout-grid">
+
+        <!-- Left Controls Column -->
+        <div class="certificate-controls-card">
+          <h3>Certificate Clearance Tool</h3>
+          <p>Verify attendee eligibility criteria before generating official institutional credential.</p>
+
+          <form action="#certificates" method="get" style="margin-bottom: var(--space-4);">
+            <div class="form-group" style="margin-bottom: var(--space-3);">
+              <label for="cert-lookup-id" class="form-label">Lookup Registration Number</label>
+              <input type="text" id="cert-lookup-id" class="form-control" value="12601847" placeholder="e.g. 12601847" pattern="[0-9]{8}">
+            </div>
+            <button type="submit" class="btn-primary" style="width: 100%;">Verify & Preview Certificate</button>
+          </form>
+
+          <h4>Eligibility Criteria Checklist</h4>
+          <ul class="checklist">
+            <li class="checklist-item">
+              <span class="checklist-icon" aria-hidden="true">✓</span>
+              <span><strong>Attendance Threshold:</strong> Minimum 80% verified attendance logged in session records (Current: 100%).</span>
+            </li>
+            <li class="checklist-item">
+              <span class="checklist-icon" aria-hidden="true">✓</span>
+              <span><strong>Lab Practical Submission:</strong> Hands-on project task verified by track mentor.</span>
+            </li>
+            <li class="checklist-item">
+              <span class="checklist-icon" aria-hidden="true">✓</span>
+              <span><strong>Course Feedback Form:</strong> Official session quality assessment submitted.</span>
+            </li>
+          </ul>
+
+          <div style="margin-top: var(--space-5); text-align: center;">
+            <a href="javascript:window.print()" class="btn-secondary" style="display: block; width: 100%;">🖨️ Print / Save as PDF Certificate</a>
+            <span class="form-hint" style="display: block; margin-top: var(--space-2);">Optimized with @media print stylesheet for crisp A4 paper output.</span>
+          </div>
+        </div>
+
+        <!-- Right Preview Column: Certificate Document Frame -->
+        <article class="certificate-preview-frame" aria-label="Official Certificate of Completion">
+          <div class="cert-header">
+            <span class="cert-seal" aria-hidden="true">🎓</span>
+            <div class="cert-institution">Lovely Professional University</div>
+            <div class="cert-department">Department of Computer Science & Engineering • CSE326 Academic Project</div>
+          </div>
+
+          <h3 class="cert-title">Certificate of Technical Completion</h3>
+          <p class="cert-prose">This prestigious academic credential is proudly awarded to</p>
+
+          <div class="cert-recipient-name">Harsimran Singh</div>
+          <p style="font-size: var(--font-size-xs); color: var(--color-text-subtle); margin-bottom: var(--space-3);">
+            University Registration Number: <strong>12601847</strong>
+          </p>
+
+          <p class="cert-statement">
+            for successfully participating in and completing the comprehensive hands-on technical workshop on
+            <span class="cert-workshop-title">Advanced Semantic Web & Modern CSS Architecture</span>,
+            demonstrating high competence in semantic HTML5 markup, responsive layout engineering, CSS custom properties, and web accessibility standards.
+          </p>
+
+          <div class="cert-meta-grid">
+            <div class="cert-signature-block">
+              <div class="cert-signature-line"></div>
+              <div class="cert-signer-name">Dr. Arvind Sharma</div>
+              <div class="cert-signer-title">Workshop Lead & Faculty Mentor</div>
+            </div>
+
+            <div class="cert-signature-block">
+              <span class="cert-id-badge">ID: CERT-WMS-2026-1901</span>
+              <div style="font-size: 10px; color: var(--color-text-subtle); margin-top: 4px;">Issued: Nov 28, 2026</div>
+            </div>
+
+            <div class="cert-signature-block">
+              <div class="cert-signature-line"></div>
+              <div class="cert-signer-name">Course Coordinator</div>
+              <div class="cert-signer-title">CSE326 Web Technologies</div>
+            </div>
+          </div>
+        </article>
+
       </div>
     </section>
 
@@ -464,11 +893,158 @@
       <header class="section-header">
         <span class="section-kicker">Quality Assurance</span>
         <h2 id="heading-feedback">Participant Feedback & Course Evaluation</h2>
-        <p>Collect attendee feedback across instructional quality, lab facilities, and course content.</p>
+        <p>Continuous quality evaluation to gauge instructional effectiveness, lab infrastructure, and attendee learning outcomes.</p>
       </header>
-      <div class="section-placeholder">
-        <!-- Feedback form and testimonials will be populated in Commit 3 -->
-        <p>Feedback collection form and evaluation summary.</p>
+
+      <div class="feedback-layout-grid">
+
+        <!-- Left: Evaluation Form -->
+        <form action="#feedback" method="get" class="form-card">
+          <fieldset class="form-fieldset">
+            <legend class="form-legend">
+              <span aria-hidden="true">⭐</span> Course Experience Ratings
+            </legend>
+
+            <div class="rating-bar-group">
+              <div class="rating-metric-item">
+                <label for="feedback-content" class="form-label">
+                  1. Technical Content Depth & Relevance (1 = Basic, 5 = Exceptional)
+                </label>
+                <div class="options-group" style="flex-direction: row; gap: var(--space-4);">
+                  <label class="option-label"><input type="radio" name="contentScore" value="1"> 1</label>
+                  <label class="option-label"><input type="radio" name="contentScore" value="2"> 2</label>
+                  <label class="option-label"><input type="radio" name="contentScore" value="3"> 3</label>
+                  <label class="option-label"><input type="radio" name="contentScore" value="4"> 4</label>
+                  <label class="option-label"><input type="radio" name="contentScore" value="5" checked> 5</label>
+                </div>
+              </div>
+
+              <div class="rating-metric-item">
+                <label for="feedback-instructor" class="form-label">
+                  2. Instructor Clarity & Practical Guidance
+                </label>
+                <div class="options-group" style="flex-direction: row; gap: var(--space-4);">
+                  <label class="option-label"><input type="radio" name="instructorScore" value="1"> 1</label>
+                  <label class="option-label"><input type="radio" name="instructorScore" value="2"> 2</label>
+                  <label class="option-label"><input type="radio" name="instructorScore" value="3"> 3</label>
+                  <label class="option-label"><input type="radio" name="instructorScore" value="4"> 4</label>
+                  <label class="option-label"><input type="radio" name="instructorScore" value="5" checked> 5</label>
+                </div>
+              </div>
+
+              <div class="rating-metric-item">
+                <label for="feedback-materials" class="form-label">
+                  3. Hardware Kits & Lab Materials Utility
+                </label>
+                <div class="options-group" style="flex-direction: row; gap: var(--space-4);">
+                  <label class="option-label"><input type="radio" name="kitScore" value="1"> 1</label>
+                  <label class="option-label"><input type="radio" name="kitScore" value="2"> 2</label>
+                  <label class="option-label"><input type="radio" name="kitScore" value="3"> 3</label>
+                  <label class="option-label"><input type="radio" name="kitScore" value="4" checked> 4</label>
+                  <label class="option-label"><input type="radio" name="kitScore" value="5"> 5</label>
+                </div>
+              </div>
+
+              <div class="rating-metric-item">
+                <label for="feedback-nps" class="form-label">
+                  4. Recommendation Score (NPS Scale: 1 to 10)
+                </label>
+                <input type="range" id="feedback-nps" name="npsScore" min="1" max="10" value="10" class="form-control" style="cursor: pointer;">
+                <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--color-text-subtle);">
+                  <span>1 (Unlikely)</span>
+                  <span>5 (Neutral)</span>
+                  <span>10 (Definitely Recommend)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: var(--space-4);">
+              <label for="feedback-takeaway" class="form-label">Key Practical Skills Acquired</label>
+              <textarea id="feedback-takeaway" name="takeaway" class="form-control" rows="2" placeholder="e.g. Mastered CSS Grid layouts, semantic tags, and accessible forms without bloated JS libraries..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="feedback-suggestions" class="form-label">Suggestions for Future Advanced Workshops</label>
+              <textarea id="feedback-suggestions" name="suggestions" class="form-control" rows="2" placeholder="e.g. Include WebSockets real-time lab and progressive web app patterns..."></textarea>
+            </div>
+          </fieldset>
+
+          <div class="form-actions-bar">
+            <button type="submit" class="btn-primary">Submit Workshop Evaluation →</button>
+          </div>
+        </form>
+
+        <!-- Right: Ratings Summary & Attendee Testimonials -->
+        <aside class="feedback-summary-card">
+          <h3 style="font-size: var(--font-size-md); margin-bottom: var(--space-4);">Evaluation Benchmark</h3>
+
+          <div class="rating-bar-group">
+            <div class="rating-metric-item">
+              <div class="metric-labels">
+                <span>Content Quality</span>
+                <span>4.9 / 5.0 (98%)</span>
+              </div>
+              <div class="score-bar-bg">
+                <div class="score-bar-fill" style="width: 98%;"></div>
+              </div>
+            </div>
+
+            <div class="rating-metric-item">
+              <div class="metric-labels">
+                <span>Instructor Mentorship</span>
+                <span>4.9 / 5.0 (98%)</span>
+              </div>
+              <div class="score-bar-bg">
+                <div class="score-bar-fill" style="width: 98%;"></div>
+              </div>
+            </div>
+
+            <div class="rating-metric-item">
+              <div class="metric-labels">
+                <span>Kit Readiness</span>
+                <span>4.7 / 5.0 (94%)</span>
+              </div>
+              <div class="score-bar-bg">
+                <div class="score-bar-fill" style="width: 94%;"></div>
+              </div>
+            </div>
+
+            <div class="rating-metric-item">
+              <div class="metric-labels">
+                <span>Net Promoter Score</span>
+                <span>94 / 100</span>
+              </div>
+              <div class="score-bar-bg">
+                <div class="score-bar-fill" style="width: 94%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <h4 style="font-size: var(--font-size-xs); text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-subtle); margin: var(--space-5) 0 var(--space-3);">
+            Recent Attendee Reviews
+          </h4>
+
+          <article class="testimonial-card">
+            <p class="testimonial-quote">
+              "The hands-on breakdown of semantic HTML elements and CSS variables made building clean layouts so intuitive. Zero bloat, pure web fundamentals."
+            </p>
+            <div class="testimonial-author">
+              <span>Harsimran Singh</span>
+              <span style="color: var(--color-warning);">★★★★★</span>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <p class="testimonial-quote">
+              "Hardware kits were waiting at Counter C as promised. The ESP32 telemetry lab was the highlight of my semester."
+            </p>
+            <div class="testimonial-author">
+              <span>Sakalabattula Pardhu</span>
+              <span style="color: var(--color-warning);">★★★★★</span>
+            </div>
+          </article>
+        </aside>
+
       </div>
     </section>
 

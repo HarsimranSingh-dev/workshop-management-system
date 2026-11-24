@@ -873,3 +873,639 @@ img {
   color: var(--color-text-inverse);
   text-decoration: none;
 }
+
+/* --------------------------------------------------------------------------
+   PART 5: FORMS, FIELDSETS & VALIDATION STYLING
+   Semantic form controls, accessible field labels, and CSS-only validation.
+   -------------------------------------------------------------------------- */
+
+.form-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-fieldset {
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  margin-bottom: var(--space-6);
+  background-color: var(--color-bg-surface);
+}
+
+.form-legend {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+  padding: 0 var(--space-2);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+}
+
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-label {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-main);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.form-label .required-star {
+  color: var(--color-danger);
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-sm);
+  font-family: inherit;
+  color: var(--color-text-main);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-control:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.15);
+  outline: none;
+}
+
+/* CSS-only form validation states */
+.form-control:user-invalid {
+  border-color: var(--color-danger);
+  background-color: #fffaf0;
+}
+
+.form-control:user-valid:not(:placeholder-shown) {
+  border-color: var(--color-success);
+}
+
+.form-hint {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-subtle);
+  margin-top: 2px;
+}
+
+/* Radio & Checkbox Groups */
+.options-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.option-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.option-label input[type="radio"],
+.option-label input[type="checkbox"] {
+  accent-color: var(--color-primary);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* Form Actions Button Bar */
+.form-actions-bar {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.btn-secondary {
+  display: inline-block;
+  background-color: var(--color-bg-subtle);
+  color: var(--color-text-main);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.btn-secondary:hover {
+  background-color: #e2e8f0;
+  text-decoration: none;
+}
+
+/* Simulated Notice Banner */
+.alert-box {
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-5);
+  font-size: var(--font-size-sm);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  border: 1px solid transparent;
+}
+
+.alert-info {
+  background-color: var(--color-info-bg);
+  color: var(--color-info);
+  border-color: #bae6fd;
+}
+
+.alert-success {
+  background-color: var(--color-success-bg);
+  color: var(--color-success);
+  border-color: #86efac;
+}
+
+/* --------------------------------------------------------------------------
+   PART 6: TABLES & DATA GRIDS
+   Accessible semantic table markup for material logistics & attendance rosters.
+   -------------------------------------------------------------------------- */
+
+.table-responsive-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--space-6);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: var(--font-size-sm);
+  background-color: var(--color-bg-surface);
+}
+
+.data-table caption {
+  caption-side: top;
+  text-align: left;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-subtle);
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-bg-subtle);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.data-table th,
+.data-table td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border-subtle);
+  vertical-align: middle;
+}
+
+.data-table thead th {
+  background-color: var(--color-bg-subtle);
+  color: var(--color-text-main);
+  font-weight: 700;
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 2px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.data-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tfoot td {
+  background-color: var(--color-bg-subtle);
+  font-weight: 700;
+  border-top: 2px solid var(--color-border);
+  color: var(--color-text-main);
+  font-size: var(--font-size-xs);
+}
+
+.mono-cell {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   PART 7: ACCORDIONS (<details> and <summary>)
+   Native interactive disclosure widgets for software/hardware prerequisites.
+   -------------------------------------------------------------------------- */
+
+.accordion-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.accordion-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-surface);
+  overflow: hidden;
+  transition: border-color var(--transition-fast);
+}
+
+.accordion-item[open] {
+  border-color: var(--color-primary);
+}
+
+.accordion-summary {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-main);
+  background-color: var(--color-bg-subtle);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.accordion-summary:hover {
+  background-color: #e2e8f0;
+}
+
+.accordion-content {
+  padding: var(--space-4);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.accordion-content ul {
+  padding-left: var(--space-5);
+  margin-top: var(--space-2);
+}
+
+.accordion-content li {
+  margin-bottom: var(--space-1);
+}
+
+/* --------------------------------------------------------------------------
+   PART 8: CERTIFICATE GENERATION & PREVIEW COMPONENT
+   Official completion certificate layout with printable styling and crest.
+   -------------------------------------------------------------------------- */
+
+.certificate-layout-grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.certificate-controls-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
+}
+
+.checklist {
+  list-style: none;
+  margin: var(--space-3) 0 var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.checklist-icon {
+  color: var(--color-success);
+  font-weight: bold;
+}
+
+/* Certificate Document Canvas */
+.certificate-preview-frame {
+  background-color: #ffffff;
+  border: 8px double #1e3a8a;
+  border-radius: var(--radius-sm);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  text-align: center;
+  background-image: radial-gradient(circle at center, #ffffff 60%, #f8fafc 100%);
+}
+
+.cert-header {
+  margin-bottom: var(--space-4);
+}
+
+.cert-seal {
+  display: inline-block;
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-1);
+}
+
+.cert-institution {
+  font-size: var(--font-size-xs);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+  margin-bottom: var(--space-1);
+}
+
+.cert-department {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-subtle);
+}
+
+.cert-title {
+  font-size: var(--font-size-xl);
+  font-family: Georgia, serif;
+  font-weight: 700;
+  color: #0f172a;
+  margin: var(--space-4) 0 var(--space-2);
+  letter-spacing: 0.02em;
+}
+
+.cert-prose {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-subtle);
+  font-style: italic;
+  margin-bottom: var(--space-2);
+}
+
+.cert-recipient-name {
+  font-size: var(--font-size-2xl);
+  font-family: Georgia, serif;
+  font-weight: bold;
+  color: #1e3a8a;
+  border-bottom: 2px solid #cbd5e1;
+  display: inline-block;
+  padding: 0 var(--space-6) var(--space-1);
+  margin-bottom: var(--space-3);
+}
+
+.cert-statement {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  max-width: 520px;
+  margin: 0 auto var(--space-4);
+  line-height: 1.5;
+}
+
+.cert-workshop-title {
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.cert-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid #e2e8f0;
+  align-items: end;
+}
+
+.cert-signature-block {
+  text-align: center;
+}
+
+.cert-signature-line {
+  height: 2px;
+  background-color: #94a3b8;
+  margin-bottom: var(--space-1);
+}
+
+.cert-signer-title {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-subtle);
+}
+
+.cert-signer-name {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.cert-id-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-primary);
+  background-color: var(--color-primary-light);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+}
+
+/* --------------------------------------------------------------------------
+   PART 9: PARTICIPANT FEEDBACK & EVALUATION RATING STYLES
+   Visual star/numerical ratings, range sliders, and attendee testimonials.
+   -------------------------------------------------------------------------- */
+
+.feedback-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: var(--space-6);
+}
+
+.rating-bar-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.rating-metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.metric-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.score-bar-bg {
+  width: 100%;
+  height: 8px;
+  background-color: #e2e8f0;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.score-bar-fill {
+  height: 100%;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-pill);
+}
+
+/* Testimonials / Quotes */
+.testimonial-card {
+  background-color: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  margin-bottom: var(--space-3);
+}
+
+.testimonial-quote {
+  font-size: var(--font-size-xs);
+  font-style: italic;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-bottom: var(--space-2);
+}
+
+.testimonial-author {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text-main);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* --------------------------------------------------------------------------
+   PART 10: RESPONSIVE MEDIA QUERIES (MOBILE, TABLET, DESKTOP)
+   Ensures seamless navigation, zero horizontal scrolling, and touch ergonomics.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 992px) {
+  .certificate-layout-grid,
+  .feedback-layout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-team-badge {
+    align-items: flex-start;
+  }
+
+  .portal-title {
+    font-size: var(--font-size-xl);
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+
+  .form-grid-2,
+  .form-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .portal-section {
+    padding: var(--space-5);
+  }
+
+  .cert-meta-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .cert-preview-frame {
+    padding: var(--space-5);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   PART 11: PRINT STYLESHEET (@media print)
+   Allows direct browser printing of completion certificates without UI chrome.
+   -------------------------------------------------------------------------- */
+@media print {
+  .site-header,
+  .site-nav,
+  .catalog-toolbar,
+  .form-actions-bar,
+  .site-footer,
+  #dashboard,
+  #workshops,
+  #registration,
+  #materials,
+  #attendance,
+  #feedback,
+  .certificate-controls-card {
+    display: none !important;
+  }
+
+  body, .main-layout, .portal-section {
+    background: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .certificate-preview-frame {
+    box-shadow: none !important;
+    border: 6px double #000000 !important;
+    page-break-inside: avoid;
+    width: 100% !important;
+  }
+}
