@@ -53,18 +53,18 @@
           <div class="summary-val">142 / 160</div>
         </div>
         <div class="summary-item">
-          <div class="summary-label">Kits Dispatched</div>
-          <div class="summary-val">128 Ready</div>
+          <div class="summary-label">Kits Allocated</div>
+          <div class="summary-val">142 Kits</div>
         </div>
         <div class="summary-item">
           <div class="summary-label">Attendance Rate</div>
-          <div class="summary-val">94.2%</div>
+          <div class="summary-val">94.4%</div>
         </div>
       </div>
 
       <div style="margin-bottom: 16px;">
-        <label style="font-size: 0.8rem; font-weight: 600;">Overall Seat Capacity (142 of 160 Seats Reserved):</label>
-        <progress value="142" max="160">88.8%</progress>
+        <label for="capacity-meter" style="font-size: 0.8rem; font-weight: 600;">Overall Seat Capacity (142 of 160 Seats Reserved • 18 Seats Remaining):</label>
+        <progress id="capacity-meter" value="142" max="160">88.8%</progress>
       </div>
 
       <h3 style="font-size: 0.95rem; margin-bottom: 8px;">Today's Schedule</h3>
@@ -172,15 +172,15 @@
           <div class="form-grid">
             <div class="form-field">
               <label for="name">Full Name *</label>
-              <input type="text" id="name" name="studentName" placeholder="e.g. Harsimran Singh" required>
+              <input type="text" id="name" name="studentName" placeholder="e.g. Harsimran Singh" autocomplete="name" required>
             </div>
             <div class="form-field">
               <label for="email">University Email *</label>
-              <input type="email" id="email" name="studentEmail" placeholder="e.g. student@lpu.in" required>
+              <input type="email" id="email" name="studentEmail" placeholder="e.g. harsimran.singh@lpu.in" autocomplete="email" required>
             </div>
             <div class="form-field">
               <label for="regno">Registration Number (8 Digits) *</label>
-              <input type="text" id="regno" name="regNo" placeholder="e.g. 12601847" pattern="[0-9]{8}" required>
+              <input type="text" id="regno" name="regNo" placeholder="e.g. 12601847" pattern="126[0-9]{5}" maxlength="8" minlength="8" title="Enter an 8-digit university registration number starting with 126 (e.g. 12601847)" required>
             </div>
             <div class="form-field">
               <label for="dept">Department *</label>
@@ -217,18 +217,22 @@
           </div>
 
           <div style="margin-top: 10px;">
-            <label style="display: flex; align-items: center; gap: 8px; font-weight: normal; font-size: 0.85rem; margin-bottom: 6px;">
-              <input type="checkbox" name="needKit" checked> Request hardware/printed manual kit
+            <label for="need-kit" style="display: flex; align-items: center; gap: 8px; font-weight: normal; font-size: 0.85rem; margin-bottom: 6px; cursor: pointer;">
+              <input type="checkbox" id="need-kit" name="needKit" checked> Request hardware/printed manual kit
             </label>
-            <label style="display: flex; align-items: center; gap: 8px; font-weight: normal; font-size: 0.85rem;">
-              <input type="checkbox" name="attendanceAgree" required checked> I agree to maintain minimum 80% attendance for certificate eligibility
+            <label for="agree-pledge" style="display: flex; align-items: center; gap: 8px; font-weight: normal; font-size: 0.85rem; cursor: pointer;">
+              <input type="checkbox" id="agree-pledge" name="attendanceAgree" required checked> I agree to maintain minimum 80% attendance for certificate eligibility
             </label>
           </div>
         </fieldset>
 
-        <div style="display: flex; gap: 10px;">
+        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
           <button type="submit" class="btn">Submit Registration</button>
           <button type="reset" class="btn btn-light">Reset</button>
+        </div>
+
+        <div class="form-note">
+          HTML5 Validation Note: Client-side constraints check required fields, email format, and the 8-digit registration format (126XXXXX) before updating the URL parameters.
         </div>
       </form>
     </section>
@@ -244,10 +248,10 @@
             <tr>
               <th>Kit Code</th>
               <th>Material / Hardware Item</th>
-              <th>Workshop</th>
-              <th>Stock Status</th>
+              <th>Target Workshop</th>
+              <th>Allocated / Capacity</th>
               <th>Pickup Desk</th>
-              <th>Condition</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
@@ -284,6 +288,13 @@
               <td><span class="status status-blue">Active</span></td>
             </tr>
           </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3">Total Allocated Kits (Matching 142 Registrations Across 4 Tracks)</td>
+              <td><strong>142 / 160 Allocated</strong></td>
+              <td colspan="2"><strong>100% Demand Met</strong></td>
+            </tr>
+          </tfoot>
         </table>
       </div>
 
@@ -295,7 +306,11 @@
     <!-- 5. Attendance Tracking -->
     <section id="attendance" class="panel">
       <h2>Session Attendance Tracking</h2>
-      <p class="panel-desc">Check-in verification and certificate eligibility.</p>
+      <p class="panel-desc">Live session attendance log for Track W101 (Semantic Web & Modern CSS — 38 Registered Attendees).</p>
+
+      <div style="background-color: var(--bg-subtle); padding: 10px 14px; border: 1px solid var(--border-color); margin-bottom: 14px; font-size: 0.85rem;">
+        <strong>Session 1 Attendance Summary:</strong> 37 of 38 Attended (36 Present on time, 1 Late, 1 Absent) • <strong>97.4% Attendance Rate</strong>
+      </div>
 
       <div class="table-responsive">
         <table>
@@ -315,7 +330,7 @@
               <td>ATT-01</td>
               <td><strong>Harsimran Singh</strong></td>
               <td>12601847</td>
-              <td>Semantic Web & Modern CSS</td>
+              <td>Semantic Web & Modern CSS (W101)</td>
               <td>09:18 AM</td>
               <td><span class="status status-green">Present</span></td>
               <td><span class="status status-green">Eligible</span></td>
@@ -324,7 +339,7 @@
               <td>ATT-02</td>
               <td><strong>Yuvraj</strong></td>
               <td>12601876</td>
-              <td>Semantic Web & Modern CSS</td>
+              <td>Semantic Web & Modern CSS (W101)</td>
               <td>09:22 AM</td>
               <td><span class="status status-green">Present</span></td>
               <td><span class="status status-green">Eligible</span></td>
@@ -333,7 +348,7 @@
               <td>ATT-03</td>
               <td><strong>Sakalabattula Pardhu</strong></td>
               <td>12625518</td>
-              <td>Embedded IoT Sensor Networks</td>
+              <td>Semantic Web & Modern CSS (W101)</td>
               <td>09:14 AM</td>
               <td><span class="status status-green">Present</span></td>
               <td><span class="status status-green">Eligible</span></td>
@@ -342,7 +357,7 @@
               <td>ATT-04</td>
               <td>Ananya Sharma</td>
               <td>12614520</td>
-              <td>Cloud Microservices & Containers</td>
+              <td>Semantic Web & Modern CSS (W101)</td>
               <td>09:25 AM</td>
               <td><span class="status status-green">Present</span></td>
               <td><span class="status status-green">Eligible</span></td>
@@ -351,7 +366,7 @@
               <td>ATT-05</td>
               <td>Rohan Verma</td>
               <td>12621044</td>
-              <td>Practical Machine Learning</td>
+              <td>Semantic Web & Modern CSS (W101)</td>
               <td>09:44 AM</td>
               <td><span class="status status-amber">Late (+14m)</span></td>
               <td><span class="status status-green">Eligible</span></td>
@@ -360,7 +375,7 @@
               <td>ATT-06</td>
               <td>Simran Kaur</td>
               <td>12618932</td>
-              <td>Semantic Web & Modern CSS</td>
+              <td>Semantic Web & Modern CSS (W101)</td>
               <td>--</td>
               <td><span class="status status-red">Absent</span></td>
               <td><span class="status status-amber">Review Needed</span></td>
@@ -421,24 +436,24 @@
           <legend>Session Evaluation</legend>
 
           <div style="margin-bottom: 10px;">
-            <label>1. Content Quality Rating (1 to 5):</label>
+            <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-dark); display: block;">1. Content Quality Rating (1 to 5):</span>
             <div style="display: flex; gap: 14px; margin-top: 4px; font-size: 0.85rem;">
-              <label><input type="radio" name="contentScore" value="1"> 1</label>
-              <label><input type="radio" name="contentScore" value="2"> 2</label>
-              <label><input type="radio" name="contentScore" value="3"> 3</label>
-              <label><input type="radio" name="contentScore" value="4"> 4</label>
-              <label><input type="radio" name="contentScore" value="5" checked> 5</label>
+              <label for="cq1"><input type="radio" id="cq1" name="contentScore" value="1"> 1</label>
+              <label for="cq2"><input type="radio" id="cq2" name="contentScore" value="2"> 2</label>
+              <label for="cq3"><input type="radio" id="cq3" name="contentScore" value="3"> 3</label>
+              <label for="cq4"><input type="radio" id="cq4" name="contentScore" value="4"> 4</label>
+              <label for="cq5"><input type="radio" id="cq5" name="contentScore" value="5" checked> 5</label>
             </div>
           </div>
 
           <div style="margin-bottom: 10px;">
-            <label>2. Instructor Clarity Rating (1 to 5):</label>
+            <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-dark); display: block;">2. Instructor Clarity Rating (1 to 5):</span>
             <div style="display: flex; gap: 14px; margin-top: 4px; font-size: 0.85rem;">
-              <label><input type="radio" name="instructorScore" value="1"> 1</label>
-              <label><input type="radio" name="instructorScore" value="2"> 2</label>
-              <label><input type="radio" name="instructorScore" value="3"> 3</label>
-              <label><input type="radio" name="instructorScore" value="4"> 4</label>
-              <label><input type="radio" name="instructorScore" value="5" checked> 5</label>
+              <label for="ic1"><input type="radio" id="ic1" name="instructorScore" value="1"> 1</label>
+              <label for="ic2"><input type="radio" id="ic2" name="instructorScore" value="2"> 2</label>
+              <label for="ic3"><input type="radio" id="ic3" name="instructorScore" value="3"> 3</label>
+              <label for="ic4"><input type="radio" id="ic4" name="instructorScore" value="4"> 4</label>
+              <label for="ic5"><input type="radio" id="ic5" name="instructorScore" value="5" checked> 5</label>
             </div>
           </div>
 

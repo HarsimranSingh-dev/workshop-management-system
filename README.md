@@ -16,8 +16,8 @@
 * **Project Objective:**  
   > *"Develop a responsive web-based solution for workshop management system that organizes the required information, simplifies the main workflow, supports clear user actions, and provides useful status or summary views."*
 * **Core Requirements Fulfilled:**
-  - Responsive web interface (desktop, tablet, mobile)
-  - Structured forms for adding and updating records with validation
+  - Responsive web interface (desktop, tablet, mobile) without horizontal overflow
+  - Structured forms with HTML5 constraint validation
   - Workshop catalog with dates, venues, instructors, and seat availability
   - Material requirements and inventory distribution tracking
   - Session attendance tracking roster with status badges
@@ -44,13 +44,40 @@
 
 ---
 
-## 4. How Every Feature Works
+## 4. Mathematical Data Consistency Across All Sections
+
+All numbers across the dashboard, workshop catalog, material logistics, and attendance sections are 100% mathematically aligned:
+
+* **Workshop Capacity & Registration Numbers:**
+  - 4 Workshop Tracks (W101, W102, W103, W104) × 40 seats each = **160 Total Seat Capacity**
+  - **W101 (Semantic Web & Modern CSS):** 38 registered (2 seats left)
+  - **W102 (Cloud Microservices & Containers):** 36 registered (4 seats left)
+  - **W103 (Embedded IoT Sensor Networks):** 35 registered (5 seats left)
+  - **W104 (Practical Machine Learning):** 33 registered (7 seats left)
+  - **Total Registrations:** $38 + 36 + 35 + 33 = \mathbf{142\text{ Registered}}$ (88.75% claimed, **18 Remaining Seats**)
+
+* **Material & Kit Allocation Numbers:**
+  - `DOC-SEM-CSS` (Web Dev Handbook): 38 allocated for W101
+  - `ACC-CLOUD` (Cloud Vouchers): 36 allocated for W102
+  - `KIT-ESP32` (IoT Hardware Kits): 35 allocated for W103
+  - `ACC-GPU` (GPU Cluster Passes): 33 allocated for W104
+  - **Total Kits Allocated:** $38 + 36 + 35 + 33 = \mathbf{142\text{ Kits Allocated}}$ (100% Demand Met for all 142 registered students)
+
+* **Attendance Roster Numbers:**
+  - **Session 1 (W101):** 38 registered students.
+  - Check-in breakdown: 36 Present (on time) + 1 Late + 1 Absent = **38 Students Accounted For**.
+  - Attended count: $36 + 1 = 37$ out of 38 (**97.4% Session 1 Attendance Rate**).
+  - **Aggregate Campus Attendance:** 134 verified attendees across all morning tracks out of 142 registered (**94.4% Overall Attendance Rate**).
+
+---
+
+## 5. How Every Feature Works
 
 The portal is organized into 8 functional sections:
 
 ### 1. Operations Dashboard (`#dashboard`)
-- **Summary Metrics:** 4 summary boxes displaying active workshop tracks (4), registrations confirmed (142 / 160), kits dispatched (128), and attendance rate (94.2%).
-- **Seat Capacity Meter:** A native `<progress>` element tracking total seat reservations across campus labs.
+- **Summary Metrics:** 4 summary boxes displaying active workshop tracks (4), registrations confirmed (142 / 160), kits allocated (142 Kits), and overall attendance rate (94.4%).
+- **Seat Capacity Meter:** A native `<progress>` element tracking total seat reservations across campus labs (142 of 160 seats reserved).
 - **Schedule Table:** A clean schedule table displaying workshop timings, titles, faculty mentors, room numbers, and live session status.
 
 ### 2. Available Workshops Catalog (`#workshops`)
@@ -65,23 +92,27 @@ The portal is organized into 8 functional sections:
 - Built using semantic `<form>`, `<fieldset>`, and `<legend>` elements:
   - **Student Information Fieldset:** Full name, university email, 8-digit registration number, and department dropdown.
   - **Workshop & Material Fieldset:** Workshop track selection, pickup desk selection, kit request checkbox, and mandatory 80% attendance pledge.
-- **Native HTML5 Validation:**
-  - `required` attribute ensures critical fields cannot be submitted empty.
-  - `pattern="[0-9]{8}"` enforces the exact 8-digit format for university student IDs.
+- **Client-Side Form Validation (No JavaScript):**
+  - All inputs feature explicit `<label for="...">` associations matching the element `id`.
+  - `required` attribute ensures required fields cannot be submitted blank.
+  - `type="email"` enforces valid email formatting.
+  - `pattern="126[0-9]{5}"`, `minlength="8"`, and `maxlength="8"` enforce university registration number format (e.g. `12601847`).
+  - Submitting appends query parameters (`?studentName=...&regNo=12601847...#registration`) to the URL. Using sample data like `12601847` (Harsimran Singh) aligns cleanly with the attendance roster and certificate preview.
 
 ### 4. Material Requirements & Logistics (`#materials`)
 - A detailed inventory table showing:
   - Kit codes (`KIT-ESP32`, `ACC-CLOUD`, `DOC-SEM-CSS`, `ACC-GPU`)
   - Item descriptions (hardware components, cloud vouchers, printed handbooks)
-  - Allocated vs total stock quantities
+  - Allocated vs total stock quantities (matching the exact 142 registrations)
   - Assigned distribution counter desks (Desk A, B, C)
   - Fulfillment status badges (`In Stock`, `Dispatched`, `Active`)
+  - A summary `<tfoot>` row confirming 142 / 160 kits allocated.
 
 ### 5. Session Attendance Tracking (`#attendance`)
-- A live session attendance roster table containing:
+- A live session attendance roster table for Track W101 containing:
   - Attendee ID (`ATT-01` to `ATT-06`)
   - Student names (including Harsimran Singh, Yuvraj, and Sakalabattula Pardhu)
-  - University registration numbers
+  - University registration numbers (`12601847`, `12601876`, `12625518`)
   - Check-in timestamps
   - Color-coded status badges: Green for `Present`, Amber for `Late`, Red for `Absent`
   - Certificate eligibility status
@@ -97,8 +128,8 @@ The portal is organized into 8 functional sections:
 
 ### 7. Participant Feedback Form (`#feedback`)
 - Simple feedback collection form with:
-  - 1 to 5 radio button rating for content quality
-  - 1 to 5 radio button rating for instructor clarity
+  - 1 to 5 radio button ratings for content quality with explicit `<label for="...">` tags
+  - 1 to 5 radio button ratings for instructor clarity
   - Textarea for student comments and suggestions
   - Submit button
 
@@ -107,7 +138,7 @@ The portal is organized into 8 functional sections:
 
 ---
 
-## 5. Design Principles (Avoiding AI Slop)
+## 6. Design Principles (Clean, Human, Non-AI)
 
 This project avoids artificial "AI design tropes" in favor of an authentic, functional academic portal:
 
@@ -126,7 +157,7 @@ This project avoids artificial "AI design tropes" in favor of an authentic, func
 
 ---
 
-## 6. Viva Walkthrough Guide (For Team 19 Members)
+## 7. Viva Walkthrough Guide (For Team 19 Members)
 
 Use these concise questions and answers to prepare for the viva:
 
@@ -140,7 +171,7 @@ Use these concise questions and answers to prepare for the viva:
 > - `<nav>` with anchor links for in-page section navigation.
 > - `<main>` and `<section>` for distinct modular workflows.
 > - `<form>`, `<fieldset>`, `<legend>`, `<label>`, and `<input>` for accessible, structured forms.
-> - `<table>`, `<thead>`, `<tbody>`, `<tr>`, `<th>`, and `<td>` for tabular data.
+> - `<table>`, `<thead>`, `<tbody>`, `<tfoot>`, `<tr>`, `<th>`, and `<td>` for tabular data.
 > - `<progress>` for visual representation of seat capacity.
 
 ### Q3: How is the CSS structured?
@@ -153,7 +184,7 @@ Use these concise questions and answers to prepare for the viva:
 
 ---
 
-## 7. Mandatory CA1 Submission Details (UMS Format)
+## 8. Mandatory CA1 Submission Details (UMS Format)
 
 | Field Name | Submission Detail |
 | :--- | :--- |
