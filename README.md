@@ -1,6 +1,5 @@
 # Workshop Management System (WMS)
-> **Course:** CSE326 — Internet & Web Technologies  
-> **Academic Task:** CA1 Project-Based Assessment  
+> **Course:** CSE326 — Internet Programming  
 > **Allocated Team:** Team 19  
 > **Tech Stack:** 100% Pure HTML5 & CSS3 (Zero JavaScript, Zero Frameworks)
 
@@ -8,7 +7,7 @@
 
 ## 1. Project Overview & Problem Statement
 
-*Extracted directly from the official university allocation sheet `CSE326_MM_Team_Project_Allocation.xlsx` (Row 20, Team 19):*
+*Extracted directly from the official course allocation sheet `CSE326_MM_Team_Project_Allocation.xlsx` (Row 20, Team 19):*
 
 * **Assigned Project Title:** Workshop Management System
 * **Problem Statement:**  
@@ -21,17 +20,17 @@
   - Workshop catalog with dates, venues, instructors, and seat availability
   - Material requirements and inventory distribution tracking
   - Session attendance tracking roster with status badges
-  - Official certificate generation and preview layout
+  - Official certificate generation and preview layout with print capability
   - Participant feedback collection form
   - Dashboard and summary metrics
 
 ---
 
-## 2. Team 19 Roster & Academic Details
+## 2. Team 19 Academic Details
 
 | Role | Student Name | Registration Number | Module Responsibilities |
 | :--- | :--- | :--- | :--- |
-| **Team Leader** | **Harsimran Singh** | `12601847` | Overall project architecture, semantic HTML structure, CSS styling, dashboard and metrics |
+| **Team Leader** | **Harsimran Singh** | `12601847` | Overall architecture, semantic HTML structure, CSS styling, dashboard and metrics |
 | **Team Member** | **Yuvraj** | `12601876` | Workshop catalog table, participant registration form, input validations |
 | **Team Member** | **Sakalabattula Pardhu** | `12625518` | Material requirements table, attendance tracking roster, certificate preview, feedback form |
 
@@ -44,149 +43,72 @@
 
 ---
 
-## 4. Mathematical Data Consistency Across All Sections
+## 4. Beginner's Guide: How Everything Works in Plain English
 
-All numbers across the dashboard, workshop catalog, material logistics, and attendance sections are 100% mathematically aligned:
+This project uses only **HTML** (the skeleton/structure of the page) and **CSS** (the styling and appearance). There are zero JavaScript files and zero complex external frameworks.
 
-* **Workshop Capacity & Registration Numbers:**
-  - 4 Workshop Tracks (W101, W102, W103, W104) × 40 seats each = **160 Total Seat Capacity**
-  - **W101 (Semantic Web & Modern CSS):** 38 registered (2 seats left)
-  - **W102 (Cloud Microservices & Containers):** 36 registered (4 seats left)
-  - **W103 (Embedded IoT Sensor Networks):** 35 registered (5 seats left)
-  - **W104 (Practical Machine Learning):** 33 registered (7 seats left)
-  - **Total Registrations:** $38 + 36 + 35 + 33 = \mathbf{142\text{ Registered}}$ (88.75% claimed, **18 Remaining Seats**)
+### The HTML Structure (`index.html`)
+1. **`<header>` (Site Header):** Sits at the top of the webpage and introduces the title ("Workshop Management System") and subtitle.
+2. **`<nav>` (Navigation Bar):** A list of links (`<ul class="nav-menu">`) that use anchor tags (`<a href="#section-id">`). When clicked, the browser smoothly jumps down to that exact section on the page.
+3. **`<main>` (Main Content Container):** Contains the primary functional modules:
+   - **`#dashboard` (Operations Dashboard):** Shows 4 summary boxes (Active Tracks, Total Registrations, Kits Allocated, Attendance Rate) plus a native HTML5 `<progress>` bar to visualize seat capacity. A small schedule table displays today's live sessions.
+   - **`#workshops` (Workshop Catalog):** A clean `<table>` showing workshop codes, titles, instructors, venues, remaining seats, and a "Register" button.
+   - **`#registration` (Registration Form):** Built with `<form>`, `<fieldset>`, and `<legend>`. Each input has a matching `<label for="id">`. HTML5 attributes like `required`, `type="email"`, and `pattern="[0-9]{8}"` ensure the browser validates user input before submission.
+   - **`#materials` (Material Requirements & Logistics):** A table displaying kit codes, descriptions, target workshops, allocated quantities (matching the exact 142 registered attendees), and distribution desks.
+   - **`#attendance` (Attendance Tracking):** A live check-in table for Session 1 with student names, registration numbers, timestamps, status badges (`Present`, `Late`, `Absent`), and certificate clearance.
+   - **`#certificates` (Certificate Preview):** An academic certificate box featuring student name (**Harsimran Singh**), registration number (`12601847`), workshop title, credential ID, and a print button.
+   - **`#feedback` (Feedback Collection):** A form with 1–5 radio ratings for content and instructor quality, plus a textarea for comments.
+4. **`<footer>` (Page Footer):** A clean, simple 1-line closing copyright and portal credit.
 
-* **Material & Kit Allocation Numbers:**
-  - `DOC-SEM-CSS` (Web Dev Handbook): 38 allocated for W101
-  - `ACC-CLOUD` (Cloud Vouchers): 36 allocated for W102
-  - `KIT-ESP32` (IoT Hardware Kits): 35 allocated for W103
-  - `ACC-GPU` (GPU Cluster Passes): 33 allocated for W104
-  - **Total Kits Allocated:** $38 + 36 + 35 + 33 = \mathbf{142\text{ Kits Allocated}}$ (100% Demand Met for all 142 registered students)
-
-* **Attendance Roster Numbers:**
-  - **Session 1 (W101):** 38 registered students.
-  - Check-in breakdown: 36 Present (on time) + 1 Late + 1 Absent = **38 Students Accounted For**.
-  - Attended count: $36 + 1 = 37$ out of 38 (**97.4% Session 1 Attendance Rate**).
-  - **Aggregate Campus Attendance:** 134 verified attendees across all morning tracks out of 142 registered (**94.4% Overall Attendance Rate**).
-
----
-
-## 5. How Every Feature Works
-
-The portal is organized into 8 functional sections:
-
-### 1. Operations Dashboard (`#dashboard`)
-- **Summary Metrics:** 4 summary boxes displaying active workshop tracks (4), registrations confirmed (142 / 160), kits allocated (142 Kits), and overall attendance rate (94.4%).
-- **Seat Capacity Meter:** A native `<progress>` element tracking total seat reservations across campus labs (142 of 160 seats reserved).
-- **Schedule Table:** A clean schedule table displaying workshop timings, titles, faculty mentors, room numbers, and live session status.
-
-### 2. Available Workshops Catalog (`#workshops`)
-- A structured table listing all 4 active technical workshops:
-  - *W101: Semantic Web & Modern CSS* (Dr. Arvind Sharma • Lab 34-401)
-  - *W102: Cloud Microservices & Containers* (Prof. Priya Nair • Block 3 Audi)
-  - *W103: Embedded IoT Sensor Networks* (Er. Rajesh Verma • Lab 14-202)
-  - *W104: Practical Machine Learning* (Dr. Meenakshi Sundaram • Lab 28-105)
-- Each row displays syllabus highlights, available seats, and an anchor button that links directly to the registration form.
-
-### 3. Participant Registration Form (`#registration`)
-- Built using semantic `<form>`, `<fieldset>`, and `<legend>` elements:
-  - **Student Information Fieldset:** Full name, university email, 8-digit registration number, and department dropdown.
-  - **Workshop & Material Fieldset:** Workshop track selection, pickup desk selection, kit request checkbox, and mandatory 80% attendance pledge.
-- **Client-Side Form Validation (No JavaScript):**
-  - All inputs feature explicit `<label for="...">` associations matching the element `id`.
-  - `required` attribute ensures required fields cannot be submitted blank.
-  - `type="email"` enforces valid email formatting.
-  - `pattern="126[0-9]{5}"`, `minlength="8"`, and `maxlength="8"` enforce university registration number format (e.g. `12601847`).
-  - Submitting appends query parameters (`?studentName=...&regNo=12601847...#registration`) to the URL. Using sample data like `12601847` (Harsimran Singh) aligns cleanly with the attendance roster and certificate preview.
-
-### 4. Material Requirements & Logistics (`#materials`)
-- A detailed inventory table showing:
-  - Kit codes (`KIT-ESP32`, `ACC-CLOUD`, `DOC-SEM-CSS`, `ACC-GPU`)
-  - Item descriptions (hardware components, cloud vouchers, printed handbooks)
-  - Allocated vs total stock quantities (matching the exact 142 registrations)
-  - Assigned distribution counter desks (Desk A, B, C)
-  - Fulfillment status badges (`In Stock`, `Dispatched`, `Active`)
-  - A summary `<tfoot>` row confirming 142 / 160 kits allocated.
-
-### 5. Session Attendance Tracking (`#attendance`)
-- A live session attendance roster table for Track W101 containing:
-  - Attendee ID (`ATT-01` to `ATT-06`)
-  - Student names (including Harsimran Singh, Yuvraj, and Sakalabattula Pardhu)
-  - University registration numbers (`12601847`, `12601876`, `12625518`)
-  - Check-in timestamps
-  - Color-coded status badges: Green for `Present`, Amber for `Late`, Red for `Absent`
-  - Certificate eligibility status
-
-### 6. Certificate Generation & Preview (`#certificates`)
-- An official academic completion credential card formatted with:
-  - University and department heading
-  - Recipient student name (**Harsimran Singh**) and registration number (`12601847`)
-  - Workshop title and completion statement
-  - Unique Credential ID (`CERT-WMS-2026-1901`) and issue date
-  - Signatures of the workshop mentor and course coordinator
-- **Print Feature:** Includes a print button triggering `window.print()`. The stylesheet contains an `@media print` rule that hides all other page sections, printing only the certificate neatly on standard A4 paper.
-
-### 7. Participant Feedback Form (`#feedback`)
-- Simple feedback collection form with:
-  - 1 to 5 radio button ratings for content quality with explicit `<label for="...">` tags
-  - 1 to 5 radio button ratings for instructor clarity
-  - Textarea for student comments and suggestions
-  - Submit button
-
-### 8. Team 19 Information (`#team`)
-- Clean 3-column overview displaying each team member's name, role, registration number, and specific module contributions.
+### The CSS Styling (`styles.css`)
+1. **CSS Variables (`:root`):** Just like variables in programming (e.g., in C or Python), we define our colors once at the top of the CSS file (`--accent-color: #1e3a8a;`, `--bg-color: #f3f4f6;`). If you change `--accent-color`, every button, header, and active link changes color automatically!
+2. **`box-sizing: border-box`:** Tells the browser that padding and borders are counted inside the element's width, preventing boxes from accidentally overflowing or breaking mobile screens.
+3. **`position: sticky` on the Navigation Bar:** Keeps the navigation bar stuck to the top of your screen as you scroll down.
+4. **`overflow-x: auto` on Tables:** Wraps tables inside `.table-responsive` so if you view the site on a small smartphone, the table gets a smooth horizontal scrollbar instead of stretching the whole page.
+5. **`@media print` (Print Stylesheet):** When you click the "Print Certificate" button or press Ctrl+P, CSS hides the navigation bar, headers, and all other sections (`display: none !important;`) so that **only the certificate** prints out cleanly on standard A4 paper.
 
 ---
 
-## 6. Design Principles (Clean, Human, Non-AI)
+## 5. Mathematical Data Alignment Across All Sections
 
-This project avoids artificial "AI design tropes" in favor of an authentic, functional academic portal:
+All numbers across the dashboard, catalog, material logistics, and attendance sections are 100% mathematically consistent:
 
-1. **Flat, Controlled Color Palette:**
-   - 1 Page Background: `#f3f4f6` (Clean light gray)
-   - 1 Surface Color: `#ffffff` (Solid white)
-   - 1 Solid Accent Color: `#1e3a8a` (Academic Navy Blue)
-   - No linear or radial gradients, glowing blobs, neon drop shadows, or glassmorphism.
-2. **Clean Whitespace & 1px Borders:**
-   - Elements use crisp 1px solid borders (`#d1d5db`) instead of rounded floating cards with heavy blurred shadows.
-   - Removed decorative left-border accent stripes and artificial card-in-card nesting.
-3. **No AI Clichés:**
-   - No emojis used as bullet points or icons.
-   - No tiny all-caps "eyebrow" tags (`FEATURES`, `HOW IT WORKS`).
-   - No fake buzzword copy or fabricated student testimonials. Real course labels, real dates, real lab numbers, and real team details carry the page.
+* **Workshop Seats:** 4 tracks × 40 seats each = **160 Total Seat Capacity**.
+  - W101 (Semantic Web & Modern CSS): 38 registered (2 seats left)
+  - W102 (Cloud Microservices & Containers): 36 registered (4 seats left)
+  - W103 (Embedded IoT Sensor Networks): 35 registered (5 seats left)
+  - W104 (Practical Machine Learning): 33 registered (7 seats left)
+  - **Total Registrations:** $38 + 36 + 35 + 33 = \mathbf{142\text{ Registered}}$ (88.75% claimed, **18 Remaining Seats**).
+* **Material Kits:** Total kits allocated across the 4 tracks = $38 + 36 + 35 + 33 = \mathbf{142\text{ Kits Allocated}}$ (100% demand met for all 142 registered attendees).
+* **Attendance:** In Track W101 (38 registered): 36 Present (on time) + 1 Late + 1 Absent = **38 Students Accounted For** (37 attended = **97.4% Session Attendance**). Aggregate campus check-in across all morning workshops is 134 out of 142 = **94.4% Overall Attendance**.
 
 ---
 
-## 7. Viva Walkthrough Guide (For Team 19 Members)
+## 6. Viva Walkthrough Guide (For Team 19 Members)
 
-Use these concise questions and answers to prepare for the viva:
+Use these simple explanations during your viva:
 
-### Q1: Why did you use HTML and CSS without JavaScript?
+### Q1: Why did you use pure HTML and CSS without JavaScript?
 > **Answer:**  
-> "The objective of CA1 is to demonstrate strong fundamentals in HTML5 and CSS3. We fulfilled all functional requirements using the browser's native platform: semantic forms with `required` and `pattern` attributes for validation, standard `<table>` elements for rosters, `<progress>` for capacity tracking, and `@media print` for certificate printing."
+> "The assessment tests our fundamentals in Internet Programming. We used native HTML5 features—such as `<form>` validation with `required` and `pattern`, native `<progress>` bars for capacity, and `@media print` for printing certificates—to create a fully functional web portal without any external dependencies."
 
-### Q2: What semantic HTML elements did you use?
+### Q2: What semantic HTML elements did you use and why?
 > **Answer:**  
-> - `<header>` and `<footer>` for institutional metadata.
-> - `<nav>` with anchor links for in-page section navigation.
-> - `<main>` and `<section>` for distinct modular workflows.
-> - `<form>`, `<fieldset>`, `<legend>`, `<label>`, and `<input>` for accessible, structured forms.
-> - `<table>`, `<thead>`, `<tbody>`, `<tfoot>`, `<tr>`, `<th>`, and `<td>` for tabular data.
-> - `<progress>` for visual representation of seat capacity.
+> "Instead of generic `<div>` tags everywhere, we used semantic tags: `<header>` for the top banner, `<nav>` for navigation links, `<main>` for the body container, `<section>` for each modular topic, `<fieldset>` and `<legend>` to group form fields, and standard `<table>`, `<thead>`, `<tbody>`, and `<tfoot>` tags for data rosters. This improves accessibility and search engine readability."
 
-### Q3: How is the CSS structured?
+### Q3: How do CSS Variables (`:root`) work?
 > **Answer:**  
-> "At the top of `styles.css`, we defined CSS variables in `:root` for our background color, surface color, text colors, and the solid navy accent (`--accent-color`). All layout rules use standard Flexbox and CSS Grid (`grid-template-columns: repeat(auto-fit, minmax(...))`) to adapt seamlessly across mobile and desktop screens."
+> "In `styles.css`, we store our colors and styles in `:root` variables like `--accent-color`. If we want to change the primary brand color during the viva, we only change it in `:root` and the whole site updates instantly."
 
 ### Q4: How does the certificate print feature work?
 > **Answer:**  
-> "In `styles.css`, we wrote an `@media print` rule. When a user presses the print button or Ctrl+P, all other page elements (`.site-header`, `.navbar`, `#dashboard`, `#registration`, etc.) are hidden using `display: none !important;`, allowing the certificate box to print cleanly on an A4 sheet."
+> "In `styles.css`, we created an `@media print` rule. When a user clicks the Print button or presses Ctrl+P, CSS automatically hides the header, navbar, forms, and tables using `display: none !important;`, leaving only the certificate neatly formatted for printing on A4 paper."
 
 ---
 
-## 8. Mandatory CA1 Submission Details (UMS Format)
+## 7. Mandatory Submission Details (For Excel Submission)
 
-| Field Name | Submission Detail |
+| Field Name | Detail |
 | :--- | :--- |
 | **Project Name & Title** | Workshop Management System |
 | **Team Name** | Team 19 |

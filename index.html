@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- 
+    The <head> section contains information about the webpage for the browser.
+    - charset="UTF-8": Tells the browser to support universal text and symbols.
+    - viewport: Makes the webpage scale properly on mobile phones and tablets.
+  -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Workshop Management System - Team 19 (CSE326)</title>
+  <title>Workshop Management System</title>
+  <!-- Links our external CSS file to style the webpage -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Site Header -->
+  <!-- ====================================================================
+       1. SITE HEADER
+       A clean, standard header introducing the portal name and purpose.
+       ==================================================================== -->
   <header class="site-header">
     <div class="container header-inner">
       <div>
         <h1>Workshop Management System</h1>
-        <p>Lovely Professional University • Department of Computer Science & Engineering</p>
+        <p>Technical Training & Campus Workshop Management Portal</p>
       </div>
-      <div class="team-badge">Team 19 • CSE326 CA1</div>
     </div>
   </header>
 
-  <!-- Navigation Menu -->
+  <!-- ====================================================================
+       2. NAVIGATION MENU (<nav>)
+       Semantic navigation list with anchor links (href="#section-id")
+       that let users quickly jump down to any part of the page.
+       ==================================================================== -->
   <nav class="navbar" aria-label="Main Navigation">
     <div class="container">
       <ul class="nav-menu">
@@ -30,19 +42,23 @@
         <li><a href="#attendance">Attendance</a></li>
         <li><a href="#certificates">Certificates</a></li>
         <li><a href="#feedback">Feedback</a></li>
-        <li><a href="#team">Team 19</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Main Content Layout -->
+  <!-- ====================================================================
+       MAIN CONTENT CONTAINER (<main>)
+       Holds all 7 core modules, each wrapped in a semantic <section>.
+       ==================================================================== -->
   <main class="container">
 
-    <!-- 1. Operations Dashboard -->
+    <!-- MODULE 1: OPERATIONS DASHBOARD -->
+    <!-- Displays executive metrics, overall capacity meter, and today's session schedule -->
     <section id="dashboard" class="panel">
       <h2>Operations Dashboard</h2>
       <p class="panel-desc">Current statistics and daily workshop schedule.</p>
 
+      <!-- 4 Key Metric Summary Boxes -->
       <div class="summary-bar">
         <div class="summary-item">
           <div class="summary-label">Active Workshops</div>
@@ -62,11 +78,13 @@
         </div>
       </div>
 
+      <!-- Native HTML5 <progress> element showing capacity utilization -->
       <div style="margin-bottom: 16px;">
         <label for="capacity-meter" style="font-size: 0.8rem; font-weight: 600;">Overall Seat Capacity (142 of 160 Seats Reserved • 18 Seats Remaining):</label>
         <progress id="capacity-meter" value="142" max="160">88.8%</progress>
       </div>
 
+      <!-- Schedule Table -->
       <h3 style="font-size: 0.95rem; margin-bottom: 8px;">Today's Schedule</h3>
       <div class="table-responsive">
         <table>
@@ -106,10 +124,11 @@
       </div>
     </section>
 
-    <!-- 2. Workshop Catalog -->
+    <!-- MODULE 2: WORKSHOP CATALOG -->
+    <!-- Displays available courses with seat availability and direct registration links -->
     <section id="workshops" class="panel">
       <h2>Available Workshops</h2>
-      <p class="panel-desc">Scheduled technical sessions for students.</p>
+      <p class="panel-desc">Scheduled technical training sessions open for registration.</p>
 
       <div class="table-responsive">
         <table>
@@ -161,39 +180,45 @@
       </div>
     </section>
 
-    <!-- 3. Participant Registration Form -->
+    <!-- MODULE 3: PARTICIPANT REGISTRATION FORM -->
+    <!-- Built with <fieldset> and <legend> to group inputs with HTML5 constraint validation -->
     <section id="registration" class="panel">
       <h2>Workshop Registration Form</h2>
-      <p class="panel-desc">Fill out attendee details to reserve a seat and kit.</p>
+      <p class="panel-desc">Fill out attendee details to reserve a workshop seat and lab kit.</p>
 
       <form action="#registration" method="get">
+        <!-- Fieldset 1: Student Information -->
         <fieldset>
           <legend>Student Information</legend>
           <div class="form-grid">
             <div class="form-field">
+              <!-- <label for="..."> connects clicking the text directly to the input box with matching id -->
               <label for="name">Full Name *</label>
               <input type="text" id="name" name="studentName" placeholder="e.g. Harsimran Singh" autocomplete="name" required>
             </div>
             <div class="form-field">
-              <label for="email">University Email *</label>
-              <input type="email" id="email" name="studentEmail" placeholder="e.g. harsimran.singh@lpu.in" autocomplete="email" required>
+              <label for="email">Email Address *</label>
+              <!-- type="email" automatically checks that the user enters a valid email address with an @ symbol -->
+              <input type="email" id="email" name="studentEmail" placeholder="e.g. student@example.edu" autocomplete="email" required>
             </div>
             <div class="form-field">
               <label for="regno">Registration Number (8 Digits) *</label>
-              <input type="text" id="regno" name="regNo" placeholder="e.g. 12601847" pattern="126[0-9]{5}" maxlength="8" minlength="8" title="Enter an 8-digit university registration number starting with 126 (e.g. 12601847)" required>
+              <!-- pattern="[0-9]{8}" forces the browser to only accept an exact 8-digit numerical ID -->
+              <input type="text" id="regno" name="regNo" placeholder="e.g. 12601847" pattern="[0-9]{8}" maxlength="8" minlength="8" title="Enter an 8-digit student registration number" required>
             </div>
             <div class="form-field">
               <label for="dept">Department *</label>
               <select id="dept" name="department" required>
-                <option value="cse" selected>School of Computer Science & Engineering</option>
+                <option value="cse" selected>Computer Science & Engineering</option>
                 <option value="it">Information Technology</option>
                 <option value="ece">Electronics & Communication</option>
-                <option value="other">Other School</option>
+                <option value="other">Other Engineering Department</option>
               </select>
             </div>
           </div>
         </fieldset>
 
+        <!-- Fieldset 2: Workshop & Kit Preferences -->
         <fieldset>
           <legend>Workshop & Material Requirements</legend>
           <div class="form-grid">
@@ -218,7 +243,7 @@
 
           <div style="margin-top: 10px;">
             <label for="need-kit" style="display: flex; align-items: center; gap: 8px; font-weight: normal; font-size: 0.85rem; margin-bottom: 6px; cursor: pointer;">
-              <input type="checkbox" id="need-kit" name="needKit" checked> Request hardware/printed manual kit
+              <input type="checkbox" id="need-kit" name="needKit" checked> Request physical hardware or printed lab manual kit
             </label>
             <label for="agree-pledge" style="display: flex; align-items: center; gap: 8px; font-weight: normal; font-size: 0.85rem; cursor: pointer;">
               <input type="checkbox" id="agree-pledge" name="attendanceAgree" required checked> I agree to maintain minimum 80% attendance for certificate eligibility
@@ -226,18 +251,20 @@
           </div>
         </fieldset>
 
+        <!-- Form action buttons -->
         <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
           <button type="submit" class="btn">Submit Registration</button>
           <button type="reset" class="btn btn-light">Reset</button>
         </div>
 
         <div class="form-note">
-          HTML5 Validation Note: Client-side constraints check required fields, email format, and the 8-digit registration format (126XXXXX) before updating the URL parameters.
+          HTML5 Validation Note: Client-side constraints check required fields, email format, and the 8-digit student ID before submitting query parameters to the URL.
         </div>
       </form>
     </section>
 
-    <!-- 4. Material Requirements & Logistics -->
+    <!-- MODULE 4: MATERIAL REQUIREMENTS & LOGISTICS -->
+    <!-- Tracks physical hardware kits, digital vouchers, and distribution desk pickup -->
     <section id="materials" class="panel">
       <h2>Material Requirements & Logistics</h2>
       <p class="panel-desc">Hardware kits, handouts, and distribution desk tracking.</p>
@@ -303,7 +330,8 @@
       </p>
     </section>
 
-    <!-- 5. Attendance Tracking -->
+    <!-- MODULE 5: SESSION ATTENDANCE TRACKING -->
+    <!-- Live check-in log and certificate eligibility records -->
     <section id="attendance" class="panel">
       <h2>Session Attendance Tracking</h2>
       <p class="panel-desc">Live session attendance log for Track W101 (Semantic Web & Modern CSS — 38 Registered Attendees).</p>
@@ -385,14 +413,15 @@
       </div>
     </section>
 
-    <!-- 6. Certificate Generation & Preview -->
+    <!-- MODULE 6: CERTIFICATE GENERATION & PREVIEW -->
+    <!-- Displays completion certificate preview with print button (isolated via @media print) -->
     <section id="certificates" class="panel">
       <h2>Certificate Generation & Preview</h2>
       <p class="panel-desc">Official completion credential for verified attendees.</p>
 
       <div class="cert-box">
         <p style="font-size: 0.8rem; font-weight: 700; color: var(--accent-color); margin-bottom: 4px;">
-          LOVELY PROFESSIONAL UNIVERSITY • SCHOOL OF COMPUTER SCIENCE & ENGINEERING
+          TECHNICAL TRAINING & WORKSHOP INITIATIVE
         </p>
         <h3>Certificate of Completion</h3>
         <p style="font-size: 0.85rem; color: var(--text-muted); margin: 6px 0;">This credential is presented to</p>
@@ -401,7 +430,7 @@
         <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">Registration Number: 12601847</p>
 
         <p class="cert-text">
-          for successfully completing the university workshop on <strong>Semantic Web & Modern CSS</strong>,
+          for successfully completing the technical training workshop on <strong>Semantic Web & Modern CSS</strong>,
           meeting the minimum attendance requirement and practical evaluation criteria.
         </p>
 
@@ -415,18 +444,20 @@
             <span>Workshop Mentor</span>
           </div>
           <div>
-            <strong>Course Coordinator</strong><br>
-            <span>CSE326 Web Technologies</span>
+            <strong>Program Coordinator</strong><br>
+            <span>Technical Workshops Committee</span>
           </div>
         </div>
       </div>
 
       <div style="margin-top: 12px;">
+        <!-- window.print() opens the browser's native print dialog to save as PDF or print -->
         <button type="button" class="btn" onclick="window.print()">Print Certificate (PDF)</button>
       </div>
     </section>
 
-    <!-- 7. Participant Feedback Form -->
+    <!-- MODULE 7: PARTICIPANT FEEDBACK FORM -->
+    <!-- Simple feedback collection form with 1-5 radio ratings and comments textarea -->
     <section id="feedback" class="panel">
       <h2>Participant Feedback Collection</h2>
       <p class="panel-desc">Session evaluation and feedback.</p>
@@ -467,49 +498,15 @@
       </form>
     </section>
 
-    <!-- 8. Academic Team 19 Information -->
-    <section id="team" class="panel">
-      <h2>Team 19 Information</h2>
-      <p class="panel-desc">CSE326 Web Development CA1 Assessment • Problem Statement: Workshop Management System</p>
-
-      <div class="team-columns">
-        <div class="member-box">
-          <h3>Harsimran Singh (Leader)</h3>
-          <p>Reg No: <strong>12601847</strong></p>
-          <ul>
-            <li>Project structure & semantic HTML layout</li>
-            <li>CSS styling & flat design system</li>
-            <li>Dashboard & summary metrics</li>
-          </ul>
-        </div>
-        <div class="member-box">
-          <h3>Yuvraj</h3>
-          <p>Reg No: <strong>12601876</strong></p>
-          <ul>
-            <li>Workshop catalog & schedule tables</li>
-            <li>Participant registration form & validation</li>
-            <li>Input controls & fieldsets</li>
-          </ul>
-        </div>
-        <div class="member-box">
-          <h3>Sakalabattula Pardhu</h3>
-          <p>Reg No: <strong>12625518</strong></p>
-          <ul>
-            <li>Material requirements & kit logistics</li>
-            <li>Attendance tracking roster & status badges</li>
-            <li>Certificate generation preview & feedback</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
   </main>
 
-  <!-- Site Footer -->
+  <!-- ====================================================================
+       SITE FOOTER
+       A simple, clean 1-line footer credit.
+       ==================================================================== -->
   <footer>
     <div class="container">
-      <p><strong>CSE326 Internet & Web Technologies • CA1 Assessment</strong></p>
-      <p>Lovely Professional University • Team 19 (Harsimran Singh, Yuvraj, Sakalabattula Pardhu)</p>
+      <p>Workshop Management System &bull; Technical Training Portal &bull; 2026</p>
     </div>
   </footer>
 
