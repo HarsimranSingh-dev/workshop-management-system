@@ -1,119 +1,114 @@
-# Workshop Management System (WMS)
-> **Course:** CSE326 — Internet Programming  
-> **Allocated Team:** Team 19  
-> **Tech Stack:** 100% Pure HTML5 & CSS3 (Zero JavaScript, Zero Frameworks)
+# Workshop Management System
+
+A web-based platform built with pure HTML5 and CSS3 to manage technical workshop registrations, hardware/material requirements, session attendance tracking, certificate generation, and participant feedback.
+
+This project was developed for **CSE326 (Internet Programming)** by **Team 19**.
 
 ---
 
-## 1. Project Overview & Problem Statement
+## Live Links & Documentation
 
-*Extracted directly from the official course allocation sheet `CSE326_MM_Team_Project_Allocation.xlsx` (Row 20, Team 19):*
-
-* **Assigned Project Title:** Workshop Management System
-* **Problem Statement:**  
-  > *"Create a platform for managing workshop registrations, material requirements, attendance tracking, and certificate generation. Include features for feedback collection."*
-* **Project Objective:**  
-  > *"Develop a responsive web-based solution for workshop management system that organizes the required information, simplifies the main workflow, supports clear user actions, and provides useful status or summary views."*
-* **Core Requirements Fulfilled:**
-  - Responsive web interface (desktop, tablet, mobile) without horizontal overflow
-  - Structured forms with HTML5 constraint validation
-  - Workshop catalog with dates, venues, instructors, and seat availability
-  - Material requirements and inventory distribution tracking
-  - Session attendance tracking roster with status badges
-  - Official certificate generation and preview layout with print capability
-  - Participant feedback collection form
-  - Dashboard and summary metrics
+- **Live Website:** [https://harsimransingh-dev.github.io/workshop-management-system/](https://harsimransingh-dev.github.io/workshop-management-system/)
+- **GitHub Repository:** [https://github.com/HarsimranSingh-dev/workshop-management-system](https://github.com/HarsimranSingh-dev/workshop-management-system)
+- **Code Walkthrough Guide:** See [CODE_EXPLANATION.md](CODE_EXPLANATION.md) for a complete explanation of every HTML tag and CSS rule used.
+- **Viva Preparation:** See [VIVA_QUESTIONS_ANSWERS.md](VIVA_QUESTIONS_ANSWERS.md) for potential examiner questions, answers, and live code modification tasks.
 
 ---
 
-## 2. Team 19 Academic Details
+## Project Team (Team 19)
 
-| Role | Student Name | Registration Number | Module Responsibilities |
-| :--- | :--- | :--- | :--- |
-| **Team Leader** | **Harsimran Singh** | `12601847` | Overall architecture, semantic HTML structure, CSS styling, dashboard and metrics |
-| **Team Member** | **Yuvraj** | `12601876` | Workshop catalog table, participant registration form, input validations |
-| **Team Member** | **Sakalabattula Pardhu** | `12625518` | Material requirements table, attendance tracking roster, certificate preview, feedback form |
-
----
-
-## 3. Live Project Links
-
-* **GitHub Repository:** [https://github.com/HarsimranSingh-dev/workshop-management-system](https://github.com/HarsimranSingh-dev/workshop-management-system)
-* **Live Deployment (GitHub Pages):** [https://harsimransingh-dev.github.io/workshop-management-system/](https://harsimransingh-dev.github.io/workshop-management-system/)
+| Name | Registration Number | Role & Primary Contributions |
+| :--- | :--- | :--- |
+| **Harsimran Singh** | `12601847` | Team Leader — Page layout, CSS design system, operations dashboard, and metrics |
+| **Yuvraj** | `12601876` | Team Member — Workshop catalog, registration form, and input validation |
+| **Sakalabattula Pardhu** | `12625518` | Team Member — Material logistics, attendance tracking, certificate preview, and feedback |
 
 ---
 
-## 4. Beginner's Guide: How Everything Works in Plain English
+## Problem Statement & Objective
 
-This project uses only **HTML** (the skeleton/structure of the page) and **CSS** (the styling and appearance). There are zero JavaScript files and zero complex external frameworks.
+**Assigned Title:** Workshop Management System  
+**Problem Statement:**  
+> Create a platform for managing workshop registrations, material requirements, attendance tracking, and certificate generation. Include features for feedback collection.
 
-### The HTML Structure (`index.html`)
-1. **`<header>` (Site Header):** Sits at the top of the webpage and introduces the title ("Workshop Management System") and subtitle.
-2. **`<nav>` (Navigation Bar):** A list of links (`<ul class="nav-menu">`) that use anchor tags (`<a href="#section-id">`). When clicked, the browser smoothly jumps down to that exact section on the page.
-3. **`<main>` (Main Content Container):** Contains the primary functional modules:
-   - **`#dashboard` (Operations Dashboard):** Shows 4 summary boxes (Active Tracks, Total Registrations, Kits Allocated, Attendance Rate) plus a native HTML5 `<progress>` bar to visualize seat capacity. A small schedule table displays today's live sessions.
-   - **`#workshops` (Workshop Catalog):** A clean `<table>` showing workshop codes, titles, instructors, venues, remaining seats, and a "Register" button.
-   - **`#registration` (Registration Form):** Built with `<form>`, `<fieldset>`, and `<legend>`. Each input has a matching `<label for="id">`. HTML5 attributes like `required`, `type="email"`, and `pattern="[0-9]{8}"` ensure the browser validates user input before submission.
-   - **`#materials` (Material Requirements & Logistics):** A table displaying kit codes, descriptions, target workshops, allocated quantities (matching the exact 142 registered attendees), and distribution desks.
-   - **`#attendance` (Attendance Tracking):** A live check-in table for Session 1 with student names, registration numbers, timestamps, status badges (`Present`, `Late`, `Absent`), and certificate clearance.
-   - **`#certificates` (Certificate Preview):** An academic certificate box featuring student name (**Harsimran Singh**), registration number (`12601847`), workshop title, credential ID, and a print button.
-   - **`#feedback` (Feedback Collection):** A form with 1–5 radio ratings for content and instructor quality, plus a textarea for comments.
-4. **`<footer>` (Page Footer):** A clean, simple 1-line closing copyright and portal credit.
-
-### The CSS Styling (`styles.css`)
-1. **CSS Variables (`:root`):** Just like variables in programming (e.g., in C or Python), we define our colors once at the top of the CSS file (`--accent-color: #1e3a8a;`, `--bg-color: #f3f4f6;`). If you change `--accent-color`, every button, header, and active link changes color automatically!
-2. **`box-sizing: border-box`:** Tells the browser that padding and borders are counted inside the element's width, preventing boxes from accidentally overflowing or breaking mobile screens.
-3. **`position: sticky` on the Navigation Bar:** Keeps the navigation bar stuck to the top of your screen as you scroll down.
-4. **`overflow-x: auto` on Tables:** Wraps tables inside `.table-responsive` so if you view the site on a small smartphone, the table gets a smooth horizontal scrollbar instead of stretching the whole page.
-5. **`@media print` (Print Stylesheet):** When you click the "Print Certificate" button or press Ctrl+P, CSS hides the navigation bar, headers, and all other sections (`display: none !important;`) so that **only the certificate** prints out cleanly on standard A4 paper.
+**Project Objective:**  
+Develop a responsive frontend solution that organizes workshop data, simplifies the registration workflow, tracks seat capacity, and provides clear status views without relying on backend services.
 
 ---
 
-## 5. Mathematical Data Alignment Across All Sections
+## Key Features
 
-All numbers across the dashboard, catalog, material logistics, and attendance sections are 100% mathematically consistent:
+The portal is implemented across seven functional sections:
 
-* **Workshop Seats:** 4 tracks × 40 seats each = **160 Total Seat Capacity**.
-  - W101 (Semantic Web & Modern CSS): 38 registered (2 seats left)
-  - W102 (Cloud Microservices & Containers): 36 registered (4 seats left)
-  - W103 (Embedded IoT Sensor Networks): 35 registered (5 seats left)
-  - W104 (Practical Machine Learning): 33 registered (7 seats left)
-  - **Total Registrations:** $38 + 36 + 35 + 33 = \mathbf{142\text{ Registered}}$ (88.75% claimed, **18 Remaining Seats**).
-* **Material Kits:** Total kits allocated across the 4 tracks = $38 + 36 + 35 + 33 = \mathbf{142\text{ Kits Allocated}}$ (100% demand met for all 142 registered attendees).
-* **Attendance:** In Track W101 (38 registered): 36 Present (on time) + 1 Late + 1 Absent = **38 Students Accounted For** (37 attended = **97.4% Session Attendance**). Aggregate campus check-in across all morning workshops is 134 out of 142 = **94.4% Overall Attendance**.
+1. **Operations Dashboard (`#dashboard`):**
+   - Displays real-time overview metrics: 4 active tracks, 142 confirmed registrations (out of 160 total seats), 142 allocated kits, and a 94.4% overall attendance rate.
+   - Includes a native `<progress>` bar tracking aggregate seat capacity.
+   - Shows today's session schedule with timing, room numbers, and status indicators.
 
----
+2. **Available Workshops Catalog (`#workshops`):**
+   - Lists scheduled workshops across four technical tracks: Web Development, Cloud & DevOps, Embedded IoT, and Machine Learning.
+   - Shows instructors, venues, remaining seats, and direct registration links.
 
-## 6. Viva Walkthrough Guide (For Team 19 Members)
+3. **Participant Registration Form (`#registration`):**
+   - Multi-section form using `<fieldset>` and `<legend>` for student details, workshop track selection, and pickup counter preferences.
+   - Native HTML5 validation using `required`, `type="email"`, and `pattern="[0-9]{8}"` to ensure proper input formatting without JavaScript.
 
-Use these simple explanations during your viva:
+4. **Material Requirements & Logistics (`#materials`):**
+   - An inventory table mapping kit codes, descriptions, and distribution desks (Counters A, B, and C) to each workshop track.
+   - Tracks allocated supplies against the 142 registered attendees.
 
-### Q1: Why did you use pure HTML and CSS without JavaScript?
-> **Answer:**  
-> "The assessment tests our fundamentals in Internet Programming. We used native HTML5 features—such as `<form>` validation with `required` and `pattern`, native `<progress>` bars for capacity, and `@media print` for printing certificates—to create a fully functional web portal without any external dependencies."
+5. **Session Attendance Tracking (`#attendance`):**
+   - A live check-in roster for Track W101 recording student names, registration numbers, timestamps, status badges (Present, Late, Absent), and certificate eligibility.
 
-### Q2: What semantic HTML elements did you use and why?
-> **Answer:**  
-> "Instead of generic `<div>` tags everywhere, we used semantic tags: `<header>` for the top banner, `<nav>` for navigation links, `<main>` for the body container, `<section>` for each modular topic, `<fieldset>` and `<legend>` to group form fields, and standard `<table>`, `<thead>`, `<tbody>`, and `<tfoot>` tags for data rosters. This improves accessibility and search engine readability."
+6. **Certificate Generation & Preview (`#certificates`):**
+   - An official completion certificate preview card with student name, registration number, credential ID, and signature lines.
+   - Print-ready using a dedicated `@media print` stylesheet that isolates only the certificate for A4 paper or PDF export.
 
-### Q3: How do CSS Variables (`:root`) work?
-> **Answer:**  
-> "In `styles.css`, we store our colors and styles in `:root` variables like `--accent-color`. If we want to change the primary brand color during the viva, we only change it in `:root` and the whole site updates instantly."
-
-### Q4: How does the certificate print feature work?
-> **Answer:**  
-> "In `styles.css`, we created an `@media print` rule. When a user clicks the Print button or presses Ctrl+P, CSS automatically hides the header, navbar, forms, and tables using `display: none !important;`, leaving only the certificate neatly formatted for printing on A4 paper."
+7. **Participant Feedback Collection (`#feedback`):**
+   - A structured evaluation form collecting 1-to-5 ratings for content quality and instructor clarity, along with suggestions for future topics.
 
 ---
 
-## 7. Mandatory Submission Details (For Excel Submission)
+## Project Structure
 
-| Field Name | Detail |
-| :--- | :--- |
-| **Project Name & Title** | Workshop Management System |
-| **Team Name** | Team 19 |
-| **Course Code** | CSE326 |
-| **Registration Number(s)** | Reg. No. 1: `12601847` (Harsimran Singh)<br>Reg. No. 2: `12601876` (Yuvraj)<br>Reg. No. 3: `12625518` (Sakalabattula Pardhu) |
-| **GitHub Link** | `https://github.com/HarsimranSingh-dev/workshop-management-system` |
-| **Deployed Link** | `https://harsimransingh-dev.github.io/workshop-management-system/` |
-| **Video Presentation Link** | *(Attach your recorded presentation link)* |
+```text
+workshop-management-system/
+├── index.html                  # Main web portal (semantic HTML5)
+├── styles.css                  # Core stylesheet (flat CSS3, CSS variables, print media)
+├── README.md                   # Project overview and submission documentation
+├── CODE_EXPLANATION.md         # Beginner-friendly guide to all HTML elements and CSS rules
+└── VIVA_QUESTIONS_ANSWERS.md   # Comprehensive viva questions, answers, and live code tasks
+```
+
+---
+
+## Tech Stack & Design Approach
+
+- **HTML5:** Semantic elements (`<header>`, `<nav>`, `<main>`, `<section>`, `<fieldset>`, `<legend>`, `<table>`, `<progress>`) for clean document structure and accessibility.
+- **CSS3:** Custom properties (`:root`) for color theming, Flexbox for navigation and toolbars, CSS Grid for responsive forms, and `@media print` for certificate printing.
+- **No External Dependencies:** Zero JavaScript, zero CSS frameworks (no Bootstrap/Tailwind), and no external icons or web fonts.
+- **Visual Design:** Clean, flat academic interface using high-contrast text and crisp 1px borders, avoiding heavy shadows, gradients, and unnecessary visual clutter.
+
+---
+
+## Running Locally
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/HarsimranSingh-dev/workshop-management-system.git
+   ```
+2. Navigate to the folder:
+   ```bash
+   cd workshop-management-system
+   ```
+3. Open `index.html` in any web browser (Chrome, Firefox, Edge, Safari). No build tools, server setup, or dependencies required.
+
+---
+
+## Course Submission Information
+
+- **Course Code:** CSE326 (Internet Programming)
+- **Team:** Team 19
+- **Project Title:** Workshop Management System
+- **Repository:** `https://github.com/HarsimranSingh-dev/workshop-management-system`
+- **Deployment:** `https://harsimransingh-dev.github.io/workshop-management-system/`
