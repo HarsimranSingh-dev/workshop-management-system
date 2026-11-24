@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 
+    Document Metadata
+    - charset="UTF-8": Supports universal UTF-8 character encoding.
+    - viewport: Ensures the page scales correctly on mobile, tablet, and desktop viewports.
+    - Educational note: Pure HTML5 and CSS3 are used throughout this project (Zero JavaScript).
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Workshop Management System - Platform for managing workshop registrations, material requirements, attendance tracking, certificate generation, and feedback collection.">
+  <meta name="author" content="Team 19 - Harsimran Singh, Yuvraj, Sakalabattula Pardhu (CSE326 CA1)">
+  <title>Workshop Management System | CSE326 CA1 Team 19</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ====================================================================
+       ACCESSIBILITY SKIP LINK
+       Allows keyboard/screen-reader users to jump directly to the main content.
+       ==================================================================== -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ====================================================================
+       SITE HEADER
+       Contains institutional metadata, portal branding, and academic badges.
+       ==================================================================== -->
+  <header class="site-header" id="top">
+    <div class="container header-container">
+      <div class="header-branding">
+        <span class="academic-tag">CSE326 • Web Development CA1 Project</span>
+        <h1 class="portal-title">Workshop Management System</h1>
+        <p class="portal-subtitle">Platform for Workshop Registrations, Material Requirements, Attendance Tracking, Certificates & Feedback</p>
+      </div>
+      <div class="header-team-badge">
+        <span class="badge-label">Assigned Allocation</span>
+        <span class="badge-team">Team 19</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====================================================================
+       PRIMARY NAVIGATION BAR (<nav>)
+       Semantic navigation list with anchor links to all core problem statement workflows.
+       ==================================================================== -->
+  <nav class="site-nav" aria-label="Main Navigation">
+    <div class="container nav-container">
+      <ul class="nav-list">
+        <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+        <li><a href="#workshops" class="nav-link">Workshops</a></li>
+        <li><a href="#registration" class="nav-link">Registration</a></li>
+        <li><a href="#materials" class="nav-link">Material Logistics</a></li>
+        <li><a href="#attendance" class="nav-link">Attendance</a></li>
+        <li><a href="#certificates" class="nav-link">Certificates</a></li>
+        <li><a href="#feedback" class="nav-link">Feedback</a></li>
+        <li><a href="#team" class="nav-link">Team 19</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ====================================================================
+       MAIN CONTENT CONTAINER (<main>)
+       Holds the complete problem statement workflows organized into semantic <section>s.
+       ==================================================================== -->
+  <main id="main-content" class="container main-layout">
+
+    <!-- Section 1: Dashboard & Metrics Summary -->
+    <section id="dashboard" class="portal-section" aria-labelledby="heading-dashboard">
+      <header class="section-header">
+        <span class="section-kicker">Operations Hub</span>
+        <h2 id="heading-dashboard">Workshop Operations Dashboard</h2>
+        <p>Executive metrics, active tracks, capacity status, and daily schedule timeline.</p>
+      </header>
+      <div class="section-placeholder">
+        <!-- Dashboard components will be populated in Commit 2 -->
+        <p>Dashboard metrics, statistics cards, and workshop schedule timeline.</p>
+      </div>
+    </section>
+
+    <!-- Section 2: Workshop Discovery & Catalog -->
+    <section id="workshops" class="portal-section" aria-labelledby="heading-workshops">
+      <header class="section-header">
+        <span class="section-kicker">Course Offerings</span>
+        <h2 id="heading-workshops">Available Workshop Catalog</h2>
+        <p>Browse scheduled technical workshops, syllabus tracks, instructor profiles, and seat availability.</p>
+      </header>
+      <div class="section-placeholder">
+        <!-- Workshop catalog cards will be populated in Commit 2 -->
+        <p>Workshop listings and category cards.</p>
+      </div>
+    </section>
+
+    <!-- Section 3: Workshop Registration Form -->
+    <section id="registration" class="portal-section" aria-labelledby="heading-registration">
+      <header class="section-header">
+        <span class="section-kicker">Enrollment Portal</span>
+        <h2 id="heading-registration">Workshop Participant Registration</h2>
+        <p>Structured multi-fieldset registration form with input validation and session preferences.</p>
+      </header>
+      <div class="section-placeholder">
+        <!-- Registration form will be populated in Commit 3 -->
+        <p>Structured participant registration form.</p>
+      </div>
+    </section>
+
+    <!-- Section 4: Material Requirements & Kit Logistics -->
+    <section id="materials" class="portal-section" aria-labelledby="heading-materials">
+      <header class="section-header">
+        <span class="section-kicker">Resource Planning</span>
+        <h2 id="heading-materials">Material Requirements & Hardware Kits</h2>
+        <p>Inventory tracking, hardware kit allocations, software prerequisites, and distribution desks.</p>
+      </header>
+      <div class="section-placeholder">
+        <!-- Materials logistics table will be populated in Commit 3 -->
+        <p>Material logistics table and kit requirements.</p>
+      </div>
+    </section>
+
+    <!-- Section 5: Attendance Tracking & Check-in Roster -->
+    <section id="attendance" class="portal-section" aria-labelledby="heading-attendance">
+      <header class="section-header">
+        <span class="section-kicker">Roster & Verification</span>
+        <h2 id="heading-attendance">Session Attendance Tracking</h2>
+        <p>Live session check-in roster, verification badges, and attendance eligibility summary.</p>
+      </header>
+      <div class="section-placeholder">
+        <!-- Attendance roster table will be populated in Commit 3 -->
+        <p>Session attendance roster table.</p>
+      </div>
+    </section>
+
+    <!-- Section 6: Certificate Generation & Verification -->
+    <section id="certificates" class="portal-section" aria-labelledby="heading-certificates">
+      <header class="section-header">
+        <span class="section-kicker">Credentials & Badges</span>
+        <h2 id="heading-certificates">Certificate Generation & Credential Preview</h2>
+        <p>Generate, verify, and preview official completion certificates with criteria checklist.</p>
+      </header>
+      <div class="section-placeholder">
+        <!-- Certificate generator and preview will be populated in Commit 3 -->
+        <p>Certificate generation tool and printable credential preview.</p>
+      </div>
+    </section>
+
+    <!-- Section 7: Feedback Collection & Course Evaluation -->
+    <section id="feedback" class="portal-section" aria-labelledby="heading-feedback">
+      <header class="section-header">
+        <span class="section-kicker">Quality Assurance</span>
+        <h2 id="heading-feedback">Participant Feedback & Course Evaluation</h2>
+        <p>Collect attendee feedback across instructional quality, lab facilities, and course content.</p>
+      </header>
+      <div class="section-placeholder">
+        <!-- Feedback form and testimonials will be populated in Commit 3 -->
+        <p>Feedback collection form and evaluation summary.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================================================================
+       SITE FOOTER
+       Includes academic course metadata, Team 19 member info, and back-to-top link.
+       ==================================================================== -->
+  <footer class="site-footer" id="team">
+    <div class="container footer-container">
+      <div class="footer-col">
+        <h3>Academic Information</h3>
+        <p><strong>Course:</strong> CSE326 - Internet & Web Technologies</p>
+        <p><strong>Assessment:</strong> CA1 Project-Based Assessment</p>
+        <p><strong>Submission Format:</strong> Pure Semantic HTML5 & CSS3</p>
+      </div>
+      <div class="footer-col">
+        <h3>Team 19 Members</h3>
+        <ul class="team-list">
+          <li><strong>Harsimran Singh</strong> (Leader) - Reg No: <code>12601847</code></li>
+          <li><strong>Yuvraj</strong> (Member) - Reg No: <code>12601876</code></li>
+          <li><strong>Sakalabattula Pardhu</strong> (Member) - Reg No: <code>12625518</code></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Quick Navigation</h3>
+        <ul class="footer-links">
+          <li><a href="#top">Back to Top ↑</a></li>
+          <li><a href="#dashboard">Dashboard Overview</a></li>
+          <li><a href="#workshops">Browse Workshops</a></li>
+          <li><a href="#registration">Register Attendee</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 Lovely Professional University • CSE326 Team 19. Designed for CA1 evaluation.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
