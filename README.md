@@ -6,7 +6,7 @@ This project was developed for **CSE326 (Internet Programming)** by **Team 19**.
 
 ---
 
-## Live Links & Documentation
+# Live Links & Documentation
 
 - **Live Website:** [https://harsimransingh-dev.github.io/workshop-management-system/](https://harsimransingh-dev.github.io/workshop-management-system/)
 - **GitHub Repository:** [https://github.com/HarsimranSingh-dev/workshop-management-system](https://github.com/HarsimranSingh-dev/workshop-management-system)
