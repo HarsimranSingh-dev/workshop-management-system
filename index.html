@@ -1,23 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 
-    The <head> section contains information about the webpage for the browser.
-    - charset="UTF-8": Tells the browser to support universal text and symbols.
-    - viewport: Makes the webpage scale properly on mobile phones and tablets.
-  -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Workshop Management System</title>
-  <!-- Links our external CSS file to style the webpage -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- ====================================================================
-       1. SITE HEADER
-       A clean, standard header introducing the portal name and purpose.
-       ==================================================================== -->
+  <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
       <div>
@@ -27,11 +18,7 @@
     </div>
   </header>
 
-  <!-- ====================================================================
-       2. NAVIGATION MENU (<nav>)
-       Semantic navigation list with anchor links (href="#section-id")
-       that let users quickly jump down to any part of the page.
-       ==================================================================== -->
+  <!-- Navigation -->
   <nav class="navbar" aria-label="Main Navigation">
     <div class="container">
       <ul class="nav-menu">
@@ -46,19 +33,14 @@
     </div>
   </nav>
 
-  <!-- ====================================================================
-       MAIN CONTENT CONTAINER (<main>)
-       Holds all 7 core modules, each wrapped in a semantic <section>.
-       ==================================================================== -->
+  <!-- Main Content -->
   <main class="container">
 
-    <!-- MODULE 1: OPERATIONS DASHBOARD -->
-    <!-- Displays executive metrics, overall capacity meter, and today's session schedule -->
+    <!-- Dashboard -->
     <section id="dashboard" class="panel">
       <h2>Operations Dashboard</h2>
       <p class="panel-desc">Current statistics and daily workshop schedule.</p>
 
-      <!-- 4 Key Metric Summary Boxes -->
       <div class="summary-bar">
         <div class="summary-item">
           <div class="summary-label">Active Workshops</div>
@@ -78,13 +60,11 @@
         </div>
       </div>
 
-      <!-- Native HTML5 <progress> element showing capacity utilization -->
       <div style="margin-bottom: 16px;">
         <label for="capacity-meter" style="font-size: 0.8rem; font-weight: 600;">Overall Seat Capacity (142 of 160 Seats Reserved • 18 Seats Remaining):</label>
         <progress id="capacity-meter" value="142" max="160">88.8%</progress>
       </div>
 
-      <!-- Schedule Table -->
       <h3 style="font-size: 0.95rem; margin-bottom: 8px;">Today's Schedule</h3>
       <div class="table-responsive">
         <table>
@@ -124,8 +104,7 @@
       </div>
     </section>
 
-    <!-- MODULE 2: WORKSHOP CATALOG -->
-    <!-- Displays available courses with seat availability and direct registration links -->
+    <!-- Workshop Catalog -->
     <section id="workshops" class="panel">
       <h2>Available Workshops</h2>
       <p class="panel-desc">Scheduled technical training sessions open for registration.</p>
@@ -180,31 +159,26 @@
       </div>
     </section>
 
-    <!-- MODULE 3: PARTICIPANT REGISTRATION FORM -->
-    <!-- Built with <fieldset> and <legend> to group inputs with HTML5 constraint validation -->
+    <!-- Registration Form -->
     <section id="registration" class="panel">
       <h2>Workshop Registration Form</h2>
       <p class="panel-desc">Fill out attendee details to reserve a workshop seat and lab kit.</p>
 
       <form action="#registration" method="get">
-        <!-- Fieldset 1: Student Information -->
         <fieldset>
           <legend>Student Information</legend>
           <div class="form-grid">
             <div class="form-field">
-              <!-- <label for="..."> connects clicking the text directly to the input box with matching id -->
               <label for="name">Full Name *</label>
-              <input type="text" id="name" name="studentName" placeholder="e.g. Harsimran Singh" autocomplete="name" required>
+              <input type="text" id="name" name="studentName" placeholder="e.g. Sakalabattula Pardhu" autocomplete="name" required>
             </div>
             <div class="form-field">
               <label for="email">Email Address *</label>
-              <!-- type="email" automatically checks that the user enters a valid email address with an @ symbol -->
-              <input type="email" id="email" name="studentEmail" placeholder="e.g. student@example.edu" autocomplete="email" required>
+              <input type="email" id="email" name="studentEmail" placeholder="e.g. pardhu@example.edu" autocomplete="email" required>
             </div>
             <div class="form-field">
               <label for="regno">Registration Number (8 Digits) *</label>
-              <!-- pattern="[0-9]{8}" forces the browser to only accept an exact 8-digit numerical ID -->
-              <input type="text" id="regno" name="regNo" placeholder="e.g. 12601847" pattern="[0-9]{8}" maxlength="8" minlength="8" title="Enter an 8-digit student registration number" required>
+              <input type="text" id="regno" name="regNo" placeholder="e.g. 12625518" pattern="[0-9]{8}" maxlength="8" minlength="8" title="Enter an 8-digit student registration number" required>
             </div>
             <div class="form-field">
               <label for="dept">Department *</label>
@@ -218,7 +192,6 @@
           </div>
         </fieldset>
 
-        <!-- Fieldset 2: Workshop & Kit Preferences -->
         <fieldset>
           <legend>Workshop & Material Requirements</legend>
           <div class="form-grid">
@@ -251,7 +224,6 @@
           </div>
         </fieldset>
 
-        <!-- Form action buttons -->
         <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
           <button type="submit" class="btn">Submit Registration</button>
           <button type="reset" class="btn btn-light">Reset</button>
@@ -263,8 +235,7 @@
       </form>
     </section>
 
-    <!-- MODULE 4: MATERIAL REQUIREMENTS & LOGISTICS -->
-    <!-- Tracks physical hardware kits, digital vouchers, and distribution desk pickup -->
+    <!-- Material Logistics -->
     <section id="materials" class="panel">
       <h2>Material Requirements & Logistics</h2>
       <p class="panel-desc">Hardware kits, handouts, and distribution desk tracking.</p>
@@ -330,8 +301,7 @@
       </p>
     </section>
 
-    <!-- MODULE 5: SESSION ATTENDANCE TRACKING -->
-    <!-- Live check-in log and certificate eligibility records -->
+    <!-- Attendance -->
     <section id="attendance" class="panel">
       <h2>Session Attendance Tracking</h2>
       <p class="panel-desc">Live session attendance log for Track W101 (Semantic Web & Modern CSS — 38 Registered Attendees).</p>
@@ -413,8 +383,7 @@
       </div>
     </section>
 
-    <!-- MODULE 6: CERTIFICATE GENERATION & PREVIEW -->
-    <!-- Displays completion certificate preview with print button (isolated via @media print) -->
+    <!-- Certificate Preview -->
     <section id="certificates" class="panel">
       <h2>Certificate Generation & Preview</h2>
       <p class="panel-desc">Official completion credential for verified attendees.</p>
@@ -427,7 +396,7 @@
         <p style="font-size: 0.85rem; color: var(--text-muted); margin: 6px 0;">This credential is presented to</p>
 
         <div class="cert-student">Sakalabattula Pardhu</div>
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">Registration Number: 12601847</p>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">Registration Number: 12625518</p>
 
         <p class="cert-text">
           for successfully completing the technical training workshop on <strong>Semantic Web & Modern CSS</strong>,
@@ -451,13 +420,11 @@
       </div>
 
       <div style="margin-top: 12px;">
-        <!-- window.print() opens the browser's native print dialog to save as PDF or print -->
         <button type="button" class="btn" onclick="window.print()">Print Certificate (PDF)</button>
       </div>
     </section>
 
-    <!-- MODULE 7: PARTICIPANT FEEDBACK FORM -->
-    <!-- Simple feedback collection form with 1-5 radio ratings and comments textarea -->
+    <!-- Feedback -->
     <section id="feedback" class="panel">
       <h2>Participant Feedback Collection</h2>
       <p class="panel-desc">Session evaluation and feedback.</p>
@@ -500,10 +467,7 @@
 
   </main>
 
-  <!-- ====================================================================
-       SITE FOOTER
-       A simple, clean 1-line footer credit.
-       ==================================================================== -->
+  <!-- Footer -->
   <footer>
     <div class="container">
       <p>Workshop Management System &bull; Technical Training Portal &bull; 2026</p>

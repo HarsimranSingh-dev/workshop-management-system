@@ -1,17 +1,15 @@
 # Workshop Management System
 
-A web-based platform built with pure HTML5 and CSS3 to manage technical workshop registrations, hardware/material requirements, session attendance tracking, certificate generation, and participant feedback.
+A web-based platform built with pure HTML5 and CSS3 to manage technical workshop registrations, hardware and material logistics, session attendance tracking, certificate generation, and participant feedback.
 
-This project was developed for **CSE326 (Internet Programming)** by **Team 19**.
+Developed for **CSE326 (Internet Programming)** by **Team 19**.
 
 ---
 
-# Live Links & Documentation
+## Live Links
 
 - **Live Website:** [https://harsimransingh-dev.github.io/workshop-management-system/](https://harsimransingh-dev.github.io/workshop-management-system/)
 - **GitHub Repository:** [https://github.com/HarsimranSingh-dev/workshop-management-system](https://github.com/HarsimranSingh-dev/workshop-management-system)
-- **Code Walkthrough Guide:** See [CODE_EXPLANATION.md](CODE_EXPLANATION.md) for a complete explanation of every HTML tag and CSS rule used.
-- **Viva Preparation:** See [VIVA_QUESTIONS_ANSWERS.md](VIVA_QUESTIONS_ANSWERS.md) for potential examiner questions, answers, and live code modification tasks.
 
 ---
 
@@ -19,7 +17,7 @@ This project was developed for **CSE326 (Internet Programming)** by **Team 19**.
 
 | Name | Registration Number | Role & Primary Contributions |
 | :--- | :--- | :--- |
-| **Harsimran Singh** | `12601847` | Team Leader — Page layout, CSS design system, operations dashboard, and metrics |
+| **Harsimran Singh** | `12601847` | Team Leader — Page layout, CSS styling, dashboard, and metrics |
 | **Yuvraj** | `12601876` | Team Member — Workshop catalog, registration form, and input validation |
 | **Sakalabattula Pardhu** | `12625518` | Team Member — Material logistics, attendance tracking, certificate preview, and feedback |
 
@@ -27,18 +25,18 @@ This project was developed for **CSE326 (Internet Programming)** by **Team 19**.
 
 ## Problem Statement & Objective
 
-**Assigned Title:** Workshop Management System  
+**Project Title:** Workshop Management System  
 **Problem Statement:**  
 > Create a platform for managing workshop registrations, material requirements, attendance tracking, and certificate generation. Include features for feedback collection.
 
-**Project Objective:**  
+**Objective:**  
 Develop a responsive frontend solution that organizes workshop data, simplifies the registration workflow, tracks seat capacity, and provides clear status views without relying on backend services.
 
 ---
 
-# Key Feature's
+## Key Features
 
-The portal is implemented across seven functional sections:
+The portal is organized across seven functional sections:
 
 1. **Operations Dashboard (`#dashboard`):**
    - Displays real-time overview metrics: 4 active tracks, 142 confirmed registrations (out of 160 total seats), 142 allocated kits, and a 94.4% overall attendance rate.
@@ -50,7 +48,7 @@ The portal is implemented across seven functional sections:
    - Shows instructors, venues, remaining seats, and direct registration links.
 
 3. **Participant Registration Form (`#registration`):**
-   - Multi-section form using `<fieldset>` and `<legend>` for student details, workshop track selection, and pickup counter preferences.
+   - Structured form using `<fieldset>` and `<legend>` for student details, workshop track selection, and pickup counter preferences.
    - Native HTML5 validation using `required`, `type="email"`, and `pattern="[0-9]{8}"` to ensure proper input formatting without JavaScript.
 
 4. **Material Requirements & Logistics (`#materials`):**
@@ -66,19 +64,6 @@ The portal is implemented across seven functional sections:
 
 7. **Participant Feedback Collection (`#feedback`):**
    - A structured evaluation form collecting 1-to-5 ratings for content quality and instructor clarity, along with suggestions for future topics.
-
----
-
-## Project Structure
-
-```text
-workshop-management-system/
-├── index.html                  # Main web portal (semantic HTML5)
-├── styles.css                  # Core stylesheet (flat CSS3, CSS variables, print media)
-├── README.md                   # Project overview and submission documentation
-├── CODE_EXPLANATION.md         # Beginner-friendly guide to all HTML elements and CSS rules
-└── VIVA_QUESTIONS_ANSWERS.md   # Comprehensive viva questions, answers, and live code tasks
-```
 
 ---
 

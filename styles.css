@@ -1,34 +1,17 @@
-/* ==========================================================================
-   WORKSHOP MANAGEMENT SYSTEM (WMS) - CORE STYLESHEET
-   A clean, beginner-friendly stylesheet using modern, flat CSS.
-   ========================================================================== */
+/* Workshop Management System */
 
-/* --------------------------------------------------------------------------
-   1. CSS VARIABLES (:root)
-   Think of :root like global variables in programming (like Python or C++).
-   We store our primary colors and borders here once, so if we ever want
-   to change a color, we only change it in one place!
-   -------------------------------------------------------------------------- */
 :root {
-  --bg-color: #f3f4f6;       /* The flat light-gray color for the whole page background */
-  --surface-color: #ffffff;  /* Pure white background for panels and tables */
-  --accent-color: #1e3a8a;   /* Solid academic navy blue for headers, buttons, and links */
-  --accent-hover: #172554;   /* Slightly darker blue when you hover over a button */
-  --text-dark: #111827;      /* Dark charcoal for main titles and headings */
-  --text-body: #374151;      /* Readable dark slate for normal paragraph text */
-  --text-muted: #6b7280;     /* Muted gray for small helper notes and captions */
-  --border-color: #d1d5db;   /* Crisp 1px solid border used for tables and input boxes */
+  --bg-color: #f3f4f6;
+  --surface-color: #ffffff;
+  --accent-color: #1e3a8a;
+  --accent-hover: #172554;
+  --text-dark: #111827;
+  --text-body: #374151;
+  --text-muted: #6b7280;
+  --border-color: #d1d5db;
 }
 
-/* --------------------------------------------------------------------------
-   2. BASIC CSS RESET
-   Different web browsers (Chrome, Firefox, Safari) have slightly different
-   default margins and paddings. This reset ensures our page looks identical
-   everywhere.
-   -------------------------------------------------------------------------- */
 * {
-  /* box-sizing: border-box means padding and borders are included in the width,
-     preventing elements from unexpectedly overflowing or breaking the screen */
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -41,18 +24,13 @@ body {
   background-color: var(--bg-color);
 }
 
-/* .container centers our content in the middle of the screen with a max-width */
 .container {
   width: 94%;
   max-width: 1040px;
   margin: 0 auto;
 }
 
-/* --------------------------------------------------------------------------
-   3. HEADER & STICKY NAVIGATION
-   The header introduces the website. The navbar stays fixed at the top as
-   you scroll down the page using "position: sticky".
-   -------------------------------------------------------------------------- */
+/* Header & Nav */
 .site-header {
   background-color: var(--accent-color);
   color: #ffffff;
@@ -71,7 +49,6 @@ body {
   color: #e2e8f0;
 }
 
-/* position: sticky keeps the navbar stuck to the top once you scroll past it */
 .navbar {
   background-color: #0f172a;
   border-bottom: 1px solid #1e293b;
@@ -80,7 +57,6 @@ body {
   z-index: 10;
 }
 
-/* flexbox makes the navigation links line up horizontally in a row */
 .nav-menu {
   list-style: none;
   display: flex;
@@ -103,17 +79,12 @@ body {
   color: #ffffff;
 }
 
-/* --------------------------------------------------------------------------
-   4. CONTENT PANELS (SECTIONS)
-   Every major part of the site (Dashboard, Workshops, Registration, etc.)
-   is wrapped in a clean white box with a 1px border.
-   -------------------------------------------------------------------------- */
+/* Layout */
 .panel {
   background-color: var(--surface-color);
   border: 1px solid var(--border-color);
   padding: 22px;
   margin: 20px auto;
-  /* scroll-margin-top prevents the sticky navbar from covering section titles when jumping via links */
   scroll-margin-top: 50px;
 }
 
@@ -131,10 +102,7 @@ h2 {
   padding-bottom: 8px;
 }
 
-/* --------------------------------------------------------------------------
-   5. DASHBOARD SUMMARY BAR
-   Flexbox rows that automatically adapt to screen sizes.
-   -------------------------------------------------------------------------- */
+/* Dashboard Summary */
 .summary-bar {
   display: flex;
   flex-wrap: wrap;
@@ -164,7 +132,6 @@ h2 {
   margin-top: 2px;
 }
 
-/* HTML5 native progress bar styling */
 progress {
   width: 100%;
   height: 10px;
@@ -172,11 +139,7 @@ progress {
   accent-color: var(--accent-color);
 }
 
-/* --------------------------------------------------------------------------
-   6. TABLES (DATA ROSTERS & INVENTORY)
-   Clean, authentic HTML tables with crisp 1px borders and alternating row colors.
-   -------------------------------------------------------------------------- */
-/* table-responsive adds a horizontal scrollbar on mobile phones so tables never break screen width */
+/* Tables */
 .table-responsive {
   width: 100%;
   overflow-x: auto;
@@ -200,7 +163,6 @@ thead th {
   font-weight: 600;
 }
 
-/* Alternating zebra stripes: even rows get a very light gray background for easier reading */
 tbody tr:nth-child(even) {
   background-color: #f9fafb;
 }
@@ -211,7 +173,6 @@ tfoot td {
   border-top: 2px solid var(--border-color);
 }
 
-/* Status Badges: Small colored pills to display state (Present, Late, Absent, In Stock) */
 .status {
   display: inline-block;
   padding: 2px 6px;
@@ -225,10 +186,7 @@ tfoot td {
 .status-red   { background-color: #fee2e2; color: #991b1b; }
 .status-blue  { background-color: #dbeafe; color: #1e40af; }
 
-/* --------------------------------------------------------------------------
-   7. FORMS (REGISTRATION & FEEDBACK)
-   Accessible form controls with clear labels and responsive column grids.
-   -------------------------------------------------------------------------- */
+/* Forms */
 form {
   display: flex;
   flex-direction: column;
@@ -247,7 +205,6 @@ legend {
   padding: 0 6px;
 }
 
-/* CSS Grid automatically arranges inputs into columns based on available width */
 .form-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -278,7 +235,6 @@ textarea {
   color: var(--text-dark);
 }
 
-/* Keyboard focus ring for accessibility */
 input:focus,
 select:focus,
 textarea:focus {
@@ -286,7 +242,6 @@ textarea:focus {
   outline-offset: 1px;
 }
 
-/* Buttons */
 .btn {
   display: inline-block;
   background-color: var(--accent-color);
@@ -324,10 +279,7 @@ textarea:focus {
   margin-top: 10px;
 }
 
-/* --------------------------------------------------------------------------
-   8. CERTIFICATE PREVIEW
-   A clean, traditional academic certificate box with double borders.
-   -------------------------------------------------------------------------- */
+/* Certificate */
 .cert-box {
   border: 3px double var(--accent-color);
   padding: 24px;
@@ -371,10 +323,7 @@ textarea:focus {
   color: var(--text-muted);
 }
 
-/* --------------------------------------------------------------------------
-   9. FOOTER
-   Simple, clean 1-line footer credit.
-   -------------------------------------------------------------------------- */
+/* Footer */
 footer {
   background-color: #0f172a;
   color: #94a3b8;
@@ -388,11 +337,7 @@ footer strong {
   color: #ffffff;
 }
 
-/* --------------------------------------------------------------------------
-   10. PRINT STYLESHEET (@media print)
-   When someone presses Ctrl+P or clicks the Print button, this hides
-   all other sections so ONLY the certificate prints cleanly on paper!
-   -------------------------------------------------------------------------- */
+/* Print */
 @media print {
   .site-header, .navbar, footer, .btn,
   #dashboard, #workshops, #registration, #materials, #attendance, #feedback {

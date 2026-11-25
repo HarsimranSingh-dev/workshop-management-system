@@ -9,3 +9,7 @@ Thumbs.db
 # Node or scratch files
 node_modules/
 npm-debug.log
+
+# Assignment instructions & reference documents
+*.pdf
+*.xlsx
