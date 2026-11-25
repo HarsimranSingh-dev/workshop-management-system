@@ -10,6 +10,7 @@ Developed for **CSE326 (Internet Programming)** by **Team 19**.
 
 - **Live Website:** [https://harsimransingh-dev.github.io/workshop-management-system/](https://harsimransingh-dev.github.io/workshop-management-system/)
 - **GitHub Repository:** [https://github.com/HarsimranSingh-dev/workshop-management-system](https://github.com/HarsimranSingh-dev/workshop-management-system)
+- **Video Presentaion:** [https://youtu.be/EjMhOYmDP34](https://youtu.be/EjMhOYmDP34)
 
 ---
 
