@@ -36,7 +36,7 @@ Develop a responsive frontend solution that organizes workshop data, simplifies 
 
 ---
 
-## Key Features
+# Key Feature's
 
 The portal is implemented across seven functional sections:
 
